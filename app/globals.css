@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --muted: #737373;
+  --border: #e5e5e5;
+  --surface: #f4f4f5;
+  --surface-elevated: #ffffff;
+  --accent: #0a0a0a;
+  --highlight: #0891b2;
+  --highlight-muted: color-mix(in oklab, var(--highlight) 35%, transparent);
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --muted: #a1a1aa;
+  --border: #27272a;
+  --surface: #18181b;
+  --surface-elevated: #1c1c1f;
+  --accent: #fafafa;
+  --highlight: #22d3ee;
+  --highlight-muted: color-mix(in oklab, var(--highlight) 28%, transparent);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-accent: var(--accent);
+  --color-highlight: var(--highlight);
+  --color-highlight-muted: var(--highlight-muted);
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Semantic cursors when the custom cursor is off (touch, coarse pointer, reduced motion) */
+@layer base {
+  a[href]:not([aria-disabled="true"]),
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  summary,
+  label[for],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled),
+  input[type="file"]:not(:disabled),
+  input[type="submit"]:not(:disabled),
+  input[type="button"]:not(:disabled),
+  input[type="reset"]:not(:disabled),
+  [data-cursor-hover] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+
+  input[type="text"]:not(:disabled),
+  input[type="email"]:not(:disabled),
+  input[type="search"]:not(:disabled),
+  input[type="url"]:not(:disabled),
+  input[type="tel"]:not(:disabled),
+  input[type="number"]:not(:disabled),
+  input[type="password"]:not(:disabled),
+  input[type="date"]:not(:disabled),
+  input[type="datetime-local"]:not(:disabled),
+  input[type="time"]:not(:disabled),
+  input[type="month"]:not(:disabled),
+  input[type="week"]:not(:disabled),
+  textarea:not(:disabled),
+  [contenteditable="true"]:not([contenteditable="false"]) {
+    cursor: text;
+  }
+}
+
+/* Custom cursor — hide default arrow; clickables still use pointer; fields use text (see CustomCursor) */
+@media (hover: hover) and (pointer: fine) {
+  html.custom-cursor-active,
+  html.custom-cursor-active * {
+    cursor: none !important;
+  }
+
+  /* Text fields only — exclude button-like inputs so they get pointer below */
+  html.custom-cursor-active input:is(
+      [type="text"],
+      [type="email"],
+      [type="search"],
+      [type="url"],
+      [type="tel"],
+      [type="number"],
+      [type="password"],
+      [type="date"],
+      [type="datetime-local"],
+      [type="time"],
+      [type="month"],
+      [type="week"]
+    ):not(:disabled),
+  html.custom-cursor-active input:not([type]):not(:disabled),
+  html.custom-cursor-active textarea:not(:disabled),
+  html.custom-cursor-active [contenteditable="true"]:not([contenteditable="false"]) {
+    cursor: text !important;
+  }
+
+  /* All clickables — must come after the `*` none rule */
+  html.custom-cursor-active a[href]:not([aria-disabled="true"]),
+  html.custom-cursor-active button:not(:disabled),
+  html.custom-cursor-active [role="button"]:not([aria-disabled="true"]),
+  html.custom-cursor-active summary,
+  html.custom-cursor-active label[for],
+  html.custom-cursor-active select:not(:disabled),
+  html.custom-cursor-active input[type="checkbox"]:not(:disabled),
+  html.custom-cursor-active input[type="radio"]:not(:disabled),
+  html.custom-cursor-active input[type="file"]:not(:disabled),
+  html.custom-cursor-active input[type="submit"]:not(:disabled),
+  html.custom-cursor-active input[type="button"]:not(:disabled),
+  html.custom-cursor-active input[type="reset"]:not(:disabled),
+  html.custom-cursor-active input[type="range"]:not(:disabled),
+  html.custom-cursor-active input[type="image"]:not(:disabled),
+  html.custom-cursor-active [data-cursor-hover],
+  html.custom-cursor-active .cursor-pointer {
+    cursor: pointer !important;
+  }
+
+  html.custom-cursor-active button:disabled,
+  html.custom-cursor-active [aria-disabled="true"] {
+    cursor: not-allowed !important;
+  }
+}
+
+::selection {
+  background: var(--highlight-muted);
+  color: var(--foreground);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+/* Page grid — layer on body (use with bg-background) so it covers the full viewport (incl. home rail) */
+.bg-grid-faint {
+  background-image: linear-gradient(
+      to right,
+      color-mix(in oklab, var(--border) 26%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--border) 26%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 72px 72px;
+  /* Pin grid to the viewport so it doesn’t scroll with page content */
+  background-attachment: fixed, fixed;
+}
+
+.dark .bg-grid-faint {
+  background-image: linear-gradient(
+      to right,
+      color-mix(in oklab, var(--border) 30%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--border) 30%, transparent) 1px,
+      transparent 1px
+    );
+}
+
+/* Home vertical ticker — scrolls up; duplicate block in markup for seamless loop */
+@keyframes home-ticker-up {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+.home-ticker-track {
+  animation: home-ticker-up var(--home-ticker-duration, 55s) linear infinite;
+  will-change: transform;
+}
+
+.home-ticker-wrap:hover .home-ticker-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-ticker-track {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* Fade ticker text at edges without an opaque overlay (grid stays visible behind rail) */
+.home-ticker-mask {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 9%,
+    black 91%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 9%,
+    black 91%,
+    transparent 100%
+  );
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+/* Primary nav: horizontal scroll on very narrow viewports */
+.nav-scroll-x {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.nav-scroll-x::-webkit-scrollbar {
+  display: none;
+}
