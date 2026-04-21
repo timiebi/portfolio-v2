@@ -59,4 +59,16 @@ export const projects: Project[] = [
     visual: "from-cyan-500/20 via-teal-600/15 to-emerald-500/15",
     image: "/projects/project-management-light.png",
   },
+  {
+    title: "Bamboo Securities",
+    description:
+      "Cross-industry project management: workspaces, teams, projects, deadlines, and notifications. Next.js on Vercel, Neon, light/dark UI.",
+    href: "https://tenant-staging.bamboosecurities.com",
+    tags: [ "React","vite", "Styled Components", "TypeScript"],
+    year: "2026",
+    role: "Lead Frontend Engineer",
+    layout: "featured",
+    visual: "from-cyan-500/20 via-teal-600/15 to-emerald-500/15",
+    image: "/projects/bamboo-securities-login.png",
+  },
 ];
