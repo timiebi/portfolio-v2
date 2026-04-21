@@ -25,6 +25,8 @@ const BRAND_HEX: Record<string, string> = {
 };
 
 export function stackIconSrc(slug: string) {
-  const hex = BRAND_HEX[slug] ?? "525252";
-  return `https://cdn.simpleicons.org/${slug}/${hex}`;
+  // Simple Icons does not expose a dedicated `reactnative` slug.
+  const normalizedSlug = slug === "reactnative" ? "react" : slug;
+  const hex = BRAND_HEX[normalizedSlug] ?? "525252";
+  return `https://cdn.simpleicons.org/${normalizedSlug}/${hex}`;
 }

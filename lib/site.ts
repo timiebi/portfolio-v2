@@ -109,8 +109,8 @@ export const site = {
   role: "Software Engineer",
   /** Hero body — under the name */
   heroBio: [
-    "I build production-ready web applications with React and TypeScript, focused on clean UI, performance, and usability.",
-    "I've shipped fullstack applications—from database to frontend—deployed on Neon and Render, used in real-world scenarios.",
+    "I architect and build production-grade applications, emphasizing scalability, performance, and high-quality user experience.",
+    "I lead end-to-end delivery—from database design to frontend implementation—shipping systems used in real-world scenarios.",
   ] as const,
   /** About page section heading (under kicker) */
   aboutSection: {
