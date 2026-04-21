@@ -12,7 +12,8 @@ export default function WorkPage() {
     <WorkSection
       kicker="Selected"
       title="Work"
-      description="Written like an internal brief: what shipped, with what stack, and where I led versus supported."
+      description=""
+      // description="Written like an internal brief: what shipped, with what stack, and where I led versus supported."
     />
   );
 }
