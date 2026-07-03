@@ -62,13 +62,13 @@ export const projects: Project[] = [
   {
     title: "Bamboo Securities",
     description:
-      "Cross-industry project management: workspaces, teams, projects, deadlines, and notifications. Next.js on Vercel, Neon, light/dark UI.",
-    href: "https://tenant-staging.bamboosecurities.com",
+      "Institutional-grade asset management. Manage customers, automate trade execution, and monitor growth in real time.",
+    href: "https://terminal.bamboosecurities.com/",
     tags: [ "React","vite", "Styled Components", "TypeScript"],
-    year: "2026",
+    year: "2024",
     role: "Lead Frontend Engineer",
     layout: "featured",
     visual: "from-cyan-500/20 via-teal-600/15 to-emerald-500/15",
-    image: "/projects/bamboo-securities-login.png",
+    image: "/projects/bamboo-user.PNG",
   },
 ];
