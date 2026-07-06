@@ -38,7 +38,7 @@ export function FeaturedWork({ variant = "default" }: FeaturedWorkProps) {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:gap-8">
           {featured.map((project, i) => (
             <FadeIn key={project.href} className="h-full min-h-0 min-w-0" delay={0.05 + i * 0.05}>
-              <ProjectCard project={project} />
+              <ProjectCard project={project} priority={i === 0} />
             </FadeIn>
           ))}
         </div>

@@ -36,11 +36,11 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Timiebi Nicholas Kosu — Software engineer (frontend-focused)",
+    default: "Timiebi Nicholas Kosu — Fullstack Developer",
     template: "%s · Timiebi Nicholas Kosu",
   },
   description:
-    "Timiebi Nicholas Kosu — software engineer, frontend-focused. Production-ready web apps with React and TypeScript; fullstack delivery on Neon and Render.",
+    "Timiebi Nicholas Kosu — Fullstack Developer. Production-ready web apps with React and TypeScript; fullstack delivery on Neon and Render.",
 };
 
 export default function RootLayout({
@@ -54,6 +54,9 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${montserrat.variable} ${jetbrainsMono.variable} ${syne.variable} h-full`}
     >
+      <head>
+        <link rel="preconnect" href="https://cdn.simpleicons.org" />
+      </head>
       <body className="bg-grid-faint relative min-h-full min-w-0 overflow-x-hidden bg-background pb-[env(safe-area-inset-bottom)] text-foreground font-sans antialiased [text-size-adjust:100%]">
         <ThemeProvider>
           <CustomCursor />

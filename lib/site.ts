@@ -106,7 +106,7 @@ export const site = {
   name: "Timiebi Nicholas Kosu",
   /** Shorter line for the sticky header on small screens */
   nameShort: "Timiebi Kosu",
-  role: "Software Engineer",
+  role: "Fullstack Developer",
   /** Hero body — under the name */
   heroBio: [
     "I architect and build production-grade applications, emphasizing scalability, performance, and high-quality user experience.",
@@ -116,7 +116,7 @@ export const site = {
   aboutSection: {
     title: "Clean UI, real deployments",
     summary:
-      "React and TypeScript for production interfaces; fullstack slices from database to UI on Neon and Render.",
+      "Fullstack development with React and TypeScript; complete slices from database to polished UI on Neon and Render.",
   },
   email: "kosutimiebinicholas@gmail.com",
   availability: "Open to Remote Roles",

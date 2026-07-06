@@ -41,7 +41,7 @@ export function SiteHeader() {
                       aria-current={active ? "page" : undefined}
                       className={`inline-flex min-h-9 cursor-pointer items-center justify-center rounded-full px-2 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight min-[380px]:px-2.5 min-[380px]:tracking-[0.18em] sm:min-h-10 sm:px-3 sm:text-xs sm:tracking-[0.2em] ${
                         active
-                          ? "bg-background text-foreground shadow-sm dark:bg-background/15"
+                          ? "bg-background text-foreground shadow-sm"
                           : "text-muted hover:bg-background/80 hover:text-foreground dark:hover:bg-background/10"
                       }`}
                     >

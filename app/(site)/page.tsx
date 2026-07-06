@@ -6,7 +6,7 @@ import { HomeRail } from "@/components/home-rail";
 export const metadata: Metadata = {
   title: "Timiebi Nicholas Kosu",
   description:
-    "Timiebi Nicholas Kosu — software engineer (frontend-focused). React, TypeScript, clean UI, fullstack on Neon and Render. Open to collaborate.",
+    "Timiebi Nicholas Kosu — Fullstack Developer. React, TypeScript, clean UI, fullstack on Neon and Render. Open to collaborate.",
 };
 
 export default function HomePage() {

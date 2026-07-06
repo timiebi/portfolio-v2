@@ -2,7 +2,10 @@ import type { Project } from "@/lib/projects";
 import { monoTag, projectMetaRow } from "@/lib/typography";
 import Image from "next/image";
 
-type Props = { project: Project };
+type Props = {
+  project: Project;
+  priority?: boolean;
+};
 
 function externalLinkProps(href: string) {
   if (!href.startsWith("http")) return {};
@@ -13,10 +16,12 @@ function Visual({
   visual,
   title,
   image,
+  priority = false,
 }: {
   visual: string;
   title: string;
   image?: string;
+  priority?: boolean;
 }) {
   const initial = title
     .split(/\s+/)
@@ -36,6 +41,7 @@ function Visual({
           fill
           className="object-cover object-top"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={priority}
         />
         <div
           className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/35 via-transparent to-foreground/3 dark:from-background/50"
@@ -59,7 +65,7 @@ function Visual({
   );
 }
 
-export function ProjectCard({ project }: Props) {
+export function ProjectCard({ project, priority = false }: Props) {
   const meta = (
     <div className={projectMetaRow}>
       <span className="text-highlight">{project.year}</span>
@@ -92,7 +98,7 @@ export function ProjectCard({ project }: Props) {
   );
 
   const shell =
-    "group relative flex h-full min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl border border-border bg-surface-elevated shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-highlight/40 hover:shadow-[0_0_0_1px_color-mix(in_oklab,var(--highlight)_22%,transparent),0_20px_40px_-24px_color-mix(in_oklab,var(--foreground)_14%,transparent)] dark:bg-surface-elevated/90 dark:hover:border-border dark:hover:shadow-[0_24px_48px_-28px_rgba(0,0,0,0.55)] [contain:layout]";
+    "group relative flex h-full min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl border border-border bg-surface-elevated shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-highlight/45 hover:shadow-[0_0_0_1px_color-mix(in_oklab,var(--highlight)_20%,transparent),0_20px_40px_-24px_color-mix(in_oklab,var(--highlight)_25%,transparent)] dark:bg-surface-elevated/90 dark:hover:border-highlight/45 dark:hover:shadow-[0_0_0_1px_color-mix(in_oklab,var(--highlight)_25%,transparent),0_24px_48px_-28px_rgba(0,0,0,0.65)] [contain:layout]";
 
   const focus =
     "block h-full w-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight";
@@ -106,7 +112,7 @@ export function ProjectCard({ project }: Props) {
           {...externalLinkProps(project.href)}
         >
           <div className="relative flex min-h-[140px] flex-[1.05] flex-col sm:min-h-[160px] @min-[34rem]:min-h-[180px]">
-            <Visual visual={project.visual} title={project.title} image={project.image} />
+            <Visual visual={project.visual} title={project.title} image={project.image} priority={priority} />
           </div>
           <div className="flex min-w-0 flex-1 flex-col justify-center border-t border-border @min-[34rem]:border-l @min-[34rem]:border-t-0">
             {textBlock}
@@ -128,7 +134,7 @@ export function ProjectCard({ project }: Props) {
         <div
           className={`relative w-full flex-shrink-0 ${isFeatured ? "min-h-[140px] sm:min-h-[160px]" : "min-h-[112px] sm:min-h-[128px]"}`}
         >
-          <Visual visual={project.visual} title={project.title} image={project.image} />
+          <Visual visual={project.visual} title={project.title} image={project.image} priority={priority} />
         </div>
         {textBlock}
       </a>

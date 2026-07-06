@@ -44,8 +44,7 @@ export function CustomCursor() {
         setOnScreen(true);
       }
 
-      const el = document.elementFromPoint(e.clientX, e.clientY);
-      const hit = el?.closest(INTERACTIVE_SELECTOR);
+      const hit = (e.target as Element | null)?.closest(INTERACTIVE_SELECTOR);
       setHover(Boolean(hit));
     };
 
