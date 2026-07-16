@@ -125,10 +125,10 @@ export function ContactSection({
                     {error}
                   </div>
                 )}
-                <div className="space-y-2">
+                <div className="space-y-2 group">
                   <label
                     htmlFor="name"
-                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted transition-colors focus-within:text-highlight"
+                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted transition-colors group-focus-within:text-highlight"
                   >
                     Name
                   </label>
@@ -144,10 +144,10 @@ export function ContactSection({
                   />
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-2 group">
                   <label
                     htmlFor="email"
-                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted transition-colors focus-within:text-highlight"
+                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted transition-colors group-focus-within:text-highlight"
                   >
                     Email
                   </label>
@@ -163,10 +163,10 @@ export function ContactSection({
                   />
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-2 group">
                   <label
                     htmlFor="message"
-                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted transition-colors focus-within:text-highlight"
+                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted transition-colors group-focus-within:text-highlight"
                   >
                     Message
                   </label>
@@ -248,10 +248,10 @@ export function ContactSection({
                 />
                 <div className="relative space-y-4">
                   <p className={eyebrowHighlight}>Direct Email</p>
-                  <div className="min-w-0 max-w-full overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch]">
+                  <div className="min-w-0 max-w-full">
                     <a
                       href={`mailto:${site.email}`}
-                      className="inline-block cursor-pointer whitespace-nowrap font-display text-[clamp(1.1rem,3vw+0.5rem,1.8rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-foreground transition-colors hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-highlight"
+                      className="inline-block cursor-pointer break-all font-display text-[clamp(0.95rem,4.8vw,1.75rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-foreground transition-colors hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-highlight"
                     >
                       {site.email}
                     </a>

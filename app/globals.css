@@ -36,7 +36,7 @@
   --color-accent: var(--accent);
   --color-highlight: var(--highlight);
   --color-highlight-muted: var(--highlight-muted);
-  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
   --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
 }

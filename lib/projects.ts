@@ -45,7 +45,7 @@ export const projects: Project[] = [
     role: "Lead Frontend Engineer",
     layout: "featured",
     visual: "from-cyan-500/20 via-teal-600/15 to-emerald-500/15",
-    image: "/projects/bamboo-user.PNG",
+    image: "/projects/bamboo-user.png",
   },
   {
     title: "TidiViews",

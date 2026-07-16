@@ -2,8 +2,8 @@
  * Typography tokens — use these so mono scale + tracking stay aligned.
  *
  * Font stack (loaded in app/layout.tsx):
- * - Montserrat → body, UI, buttons (`font-sans` on <body>)
- * - Syne → headlines & display (`font-display`) — geometric contrast to Montserrat body
+ * - Plus Jakarta Sans → body, UI, buttons (`font-sans` on <body>)
+ * - Syne → headlines & display (`font-display`) — geometric contrast to Plus Jakarta Sans body
  * - JetBrains Mono → labels, meta, tags (`font-mono` via utilities below)
  */
 
@@ -40,7 +40,7 @@ export const heroTitle =
   "font-display text-[clamp(1.65rem,5.8vw+0.35rem,3.5rem)] font-semibold leading-[1.07] tracking-[-0.03em] text-foreground";
 
 /** Body intro under hero title */
-export const bodyLead = "text-base leading-[1.65] text-muted sm:text-lg";
+export const bodyLead = "text-base leading-[1.65] sm:text-lg";
 
 /** Section description (sans) */
 export const sectionDescription =

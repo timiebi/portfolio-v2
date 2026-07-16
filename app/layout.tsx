@@ -2,12 +2,12 @@ import { CustomCursor } from "@/components/custom-cursor";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono, Montserrat, Syne } from "next/font/google";
+import { JetBrains_Mono, Plus_Jakarta_Sans, Syne } from "next/font/google";
 import "./globals.css";
 
-/** Body & UI sans — geometric, highly legible, works in product and portfolio contexts */
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+/** Body & UI sans — sleek, geometric, highly legible, works in product and portfolio contexts */
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700"],
@@ -52,7 +52,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${montserrat.variable} ${jetbrainsMono.variable} ${syne.variable} h-full`}
+      className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} ${syne.variable} h-full`}
     >
       <head>
         <link rel="preconnect" href="https://cdn.simpleicons.org" />
