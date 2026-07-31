@@ -4,7 +4,7 @@ import { WorkSection } from "@/components/work-section";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Project archive — commerce, design systems, data-heavy interfaces, and integrated services by Timiebi Nicholas Kosu.",
+    "Project archive — custom interfaces, design systems, and frontend architectures optimized for performance and usability by Timiebi Nicholas Kosu.",
 };
 
 export default function WorkPage() {

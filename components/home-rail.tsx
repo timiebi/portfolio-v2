@@ -107,9 +107,9 @@ export function HomeRail() {
   return (
     <aside
       aria-label="Projects, stack, and updates"
-      className="pointer-events-none fixed right-4 top-1/2 z-10 hidden w-[min(13.25rem,calc(100vw-2rem))] max-w-[13.25rem] -translate-y-1/2 lg:block xl:right-5 2xl:right-6"
+      className="pointer-events-none sticky top-28 z-10 hidden w-full lg:block"
     >
-      <div className="home-ticker-wrap pointer-events-auto pl-2">
+      <div className="home-ticker-wrap pointer-events-auto pl-4">
         <p className="sr-only">
           Rotating highlights: projects, tools, and short notes. Hover to pause.
         </p>

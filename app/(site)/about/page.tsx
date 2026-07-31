@@ -4,7 +4,7 @@ import { AboutSection } from "@/components/about-section";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Timiebi Nicholas Kosu — Fullstack Developer building with React and TypeScript, shipping fullstack on Neon and Render.",
+    "About Timiebi Nicholas Kosu — Senior Frontend Engineer and UI/UX Designer specialized in Next.js, React, and performance engineering.",
 };
 
 export default function AboutPage() {

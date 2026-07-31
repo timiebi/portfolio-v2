@@ -37,11 +37,11 @@ export const projectMetaRow =
 
 /** Hero H1 — fluid type down to ~320px wide viewports */
 export const heroTitle =
-  "font-display text-[clamp(1.65rem,5.8vw+0.35rem,3.5rem)] font-semibold leading-[1.07] tracking-[-0.03em] text-foreground";
+  "font-display text-[clamp(2.25rem,6.5vw+0.1rem,4.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-foreground";
 
 /** Body intro under hero title */
-export const bodyLead = "text-base leading-[1.65] sm:text-lg";
+export const bodyLead = "text-base leading-[1.7] sm:text-lg lg:text-[1.125rem]";
 
 /** Section description (sans) */
 export const sectionDescription =
-  "w-full max-w-none text-pretty text-sm leading-relaxed text-muted sm:max-w-md md:text-right md:text-[0.9375rem]";
+  "w-full max-w-none text-pretty text-sm leading-relaxed text-muted sm:max-w-md lg:max-w-lg md:text-right md:text-[0.9375rem] lg:text-[1rem]";

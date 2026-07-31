@@ -1,12 +1,25 @@
+"use client";
+
 import { SiteLogo } from "@/components/site-logo";
 import { siteShell } from "@/lib/layout";
 import { mainNav, routes } from "@/lib/routes";
 import { site } from "@/lib/site";
 import { eyebrowHighlight, monoLegal } from "@/lib/typography";
 import Link from "next/link";
+import { useLenis } from "lenis/react";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
+  const lenis = useLenis();
+
+  const handleScrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (lenis) {
+      lenis.scrollTo(0);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <footer className="border-t border-border">
@@ -71,13 +84,14 @@ export function SiteFooter() {
             </ul>
           </div>
         </div>
-        <Link
-          href={routes.home}
+        <button
+          type="button"
+          onClick={handleScrollToTop}
           className={`inline-flex cursor-pointer items-center gap-2 self-start transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight lg:self-end ${eyebrowHighlight}`}
         >
           Top
           <span aria-hidden>↑</span>
-        </Link>
+        </button>
       </div>
     </footer>
   );

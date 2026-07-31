@@ -106,20 +106,20 @@ export const site = {
   name: "Timiebi Nicholas Kosu",
   /** Shorter line for the sticky header on small screens */
   nameShort: "Timiebi Kosu",
-  role: "Fullstack Developer",
+  role: "Senior Frontend Engineer",
   /** Hero body — under the name */
   heroBio: [
-    "I architect and build production-grade applications, emphasizing scalability, performance, and high-quality user experience.",
-    "I lead end-to-end delivery—from database design to frontend implementation—shipping systems used in real-world scenarios.",
+    "I design and build high-performance, accessible, and responsive user interfaces, bridging frontend engineering with modern product design.",
+    "Specializing in Next.js, React, and performance engineering. I focus on optimizing web vitals, crafting intuitive design systems, and authoring clean, production-grade code.",
   ] as const,
   /** About page section heading (under kicker) */
   aboutSection: {
-    title: "Clean UI, real deployments",
+    title: "High-Fidelity UI, Performance-Driven Code",
     summary:
-      "Fullstack development with React and TypeScript; complete slices from database to polished UI on Neon and Render.",
+      "Frontend engineering with Next.js, React, and TypeScript. Building accessible, responsive interfaces with custom interactions, lightweight animations, and zero-overhead performance optimization.",
   },
   email: "kosutimiebinicholas@gmail.com",
-  availability: "Open to Remote Roles",
+  availability: "",
   social: {
     github: "https://github.com/timiebikosu",
     linkedin: "https://www.linkedin.com/in/nicholas-kosu",

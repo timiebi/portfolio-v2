@@ -3,7 +3,8 @@ import { ContactSection } from "@/components/contact-section";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Email and profiles for Timiebi Nicholas Kosu — roles, collaboration, and inquiries.",
+  description:
+    "Connect with Timiebi Nicholas Kosu — for recruiting, frontend contract work, or engineering collaboration opportunities.",
 };
 
 export default function ContactPage() {

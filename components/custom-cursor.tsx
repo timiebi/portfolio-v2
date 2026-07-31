@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const INTERACTIVE_SELECTOR = [
   "a[href]",
@@ -19,15 +19,17 @@ function lerp(a: number, b: number, t: number) {
 }
 
 export function CustomCursor() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const dotRef = useRef<HTMLDivElement>(null);
+  
   const target = useRef({ x: -100, y: -100 });
   const ringPos = useRef({ x: -100, y: -100 });
   const dotPos = useRef({ x: -100, y: -100 });
   const rafRef = useRef(0);
-  const onScreenRef = useRef(false);
-  const [hover, setHover] = useState(false);
-  const [onScreen, setOnScreen] = useState(false);
+  
+  const isVisible = useRef(false);
+  const isHovering = useRef(false);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -39,18 +41,31 @@ export function CustomCursor() {
 
     const move = (e: MouseEvent) => {
       target.current = { x: e.clientX, y: e.clientY };
-      if (!onScreenRef.current) {
-        onScreenRef.current = true;
-        setOnScreen(true);
+      
+      // Update visibility on first move
+      if (!isVisible.current) {
+        isVisible.current = true;
+        if (containerRef.current) {
+          containerRef.current.setAttribute("data-visible", "true");
+        }
       }
 
+      // Check hover hit
       const hit = (e.target as Element | null)?.closest(INTERACTIVE_SELECTOR);
-      setHover(Boolean(hit));
+      const shouldHover = Boolean(hit);
+      if (shouldHover !== isHovering.current) {
+        isHovering.current = shouldHover;
+        if (ringRef.current) {
+          ringRef.current.setAttribute("data-hover", shouldHover ? "true" : "false");
+        }
+      }
     };
 
     const leaveWindow = () => {
-      onScreenRef.current = false;
-      setOnScreen(false);
+      isVisible.current = false;
+      if (containerRef.current) {
+        containerRef.current.setAttribute("data-visible", "false");
+      }
     };
 
     const loop = () => {
@@ -86,14 +101,15 @@ export function CustomCursor() {
 
   return (
     <div
+      ref={containerRef}
       aria-hidden
-      className={`custom-cursor-root pointer-events-none fixed inset-0 z-10050 ${onScreen ? "opacity-100" : "opacity-0"} transition-opacity duration-200`}
+      data-visible="false"
+      className="custom-cursor-root pointer-events-none fixed inset-0 z-10050 opacity-0 data-[visible=true]:opacity-100 transition-opacity duration-200"
     >
       <div
         ref={ringRef}
-        className={`custom-cursor-ring absolute left-0 top-0 h-9 w-9 rounded-full border border-highlight/40 bg-highlight/5 shadow-[0_0_0_1px_color-mix(in_oklab,var(--foreground)_8%,transparent)] transition-[height,width,border-color,background-color] duration-300 ease-out will-change-transform dark:border-highlight/50 dark:bg-highlight/10 ${
-          hover ? "h-11 w-11 border-highlight/65 dark:border-highlight/70" : ""
-        }`}
+        data-hover="false"
+        className="custom-cursor-ring absolute left-0 top-0 h-9 w-9 rounded-full border border-highlight/40 bg-highlight/5 shadow-[0_0_0_1px_color-mix(in_oklab,var(--foreground)_8%,transparent)] transition-[height,width,border-color,background-color] duration-300 ease-out will-change-transform dark:border-highlight/50 dark:bg-highlight/10 data-[hover=true]:h-11 data-[hover=true]:w-11 data-[hover=true]:border-highlight/65 data-[hover=true]:dark:border-highlight/70"
       />
       <div
         ref={dotRef}

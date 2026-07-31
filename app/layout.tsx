@@ -36,11 +36,42 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Timiebi Nicholas Kosu — Fullstack Developer",
+    default: "Timiebi Nicholas Kosu — Senior Frontend Engineer",
     template: "%s · Timiebi Nicholas Kosu",
   },
   description:
-    "Timiebi Nicholas Kosu — Fullstack Developer. Production-ready web apps with React and TypeScript; fullstack delivery on Neon and Render.",
+    "Timiebi Nicholas Kosu — Senior Frontend Engineer & UI/UX Designer. Specializing in high-performance Next.js, React applications, custom animations, accessibility, and pixel-perfect design systems.",
+  keywords: [
+    "Timiebi Nicholas Kosu",
+    "Senior Frontend Engineer",
+    "Frontend Developer",
+    "React Developer",
+    "Next.js Developer",
+    "UI/UX Designer",
+    "Web Performance Engineer",
+    "Accessibility Specialist",
+    "TypeScript",
+  ],
+  authors: [{ name: "Timiebi Nicholas Kosu" }],
+  creator: "Timiebi Nicholas Kosu",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    title: "Timiebi Nicholas Kosu — Senior Frontend Engineer",
+    description:
+      "Senior Frontend Engineer specializing in Next.js, React, and web performance. Custom interaction design, responsive layouts, and zero-overhead performance optimization.",
+    siteName: "Timiebi Nicholas Kosu Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Timiebi Nicholas Kosu — Senior Frontend Engineer",
+    description:
+      "Senior Frontend Engineer specializing in Next.js, React, and web performance. Custom interaction design, responsive layouts, and zero-overhead performance optimization.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
