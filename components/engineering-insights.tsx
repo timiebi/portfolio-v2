@@ -6,8 +6,8 @@ import { articles } from "@/lib/articles";
 import { eyebrowHighlight, monoTag, projectMetaRow } from "@/lib/typography";
 
 export function EngineeringInsights() {
-  const featured = articles[0]; // Proximity article
-  const secondaries = articles.slice(1); // Resend and What Africa Needs articles
+  const featured = articles[0];
+  const secondaries = articles.slice(1);
 
   return (
     <section className="min-w-0" aria-labelledby="insights-heading">

@@ -9,6 +9,25 @@ export type Article = {
 
 export const articles: Article[] = [
   {
+    title: "Frontend Security in Fintech",
+    description:
+      "Fintech is unforgiving — a frontend bug can expose accounts, balances, and the ability to move money. Seven vulnerabilities I see most often, from tokens in localStorage to missing CSRF, with practical fixes from production work.",
+    href: "https://timiebi.hashnode.dev/frontend-security-in-fintech-by-kosu-timiebi-nicholas",
+    date: "August 18, 2026",
+    readTime: "10 min read",
+    tags: ["Security", "Fintech", "Frontend", "Next.js"],
+  },
+  {
+    title:
+      "The BFF Pattern in Next.js — The Architecture Decision Most Developers Skip",
+    description:
+      "Your UI needs six fields; the API returns forty-seven. Backend For Frontend in Next.js — API routes and Server Actions as a dedicated layer that aggregates, shapes, and secures data so components stay presentation-only.",
+    href: "https://timiebi.hashnode.dev/the-bff-pattern-in-next-js-the-architecture-decision-most-developers-skip-by-kosu-timiebi-nicholas",
+    date: "August 14, 2026",
+    readTime: "9 min read",
+    tags: ["Next.js", "Architecture", "BFF", "API Routes"],
+  },
+  {
     title: "The Biggest Problem in African Tech Isn't Talent. It's Proximity.",
     description:
       "Geography shapes what problems we solve. While tech talent clusters in major cities building urban middle-class solutions (ride-hailing, food delivery), the critical infrastructure needs of rural and informal markets are left neglected.",
