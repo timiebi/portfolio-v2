@@ -14,7 +14,7 @@ export type Project = {
   image?: string;
 };
 
-/** Live projects — screenshots in `public/projects/` (optional `project-management-dark.png` for swaps). */
+/** Live projects — screenshots in `public/projects/`. */
 export const projects: Project[] = [
   {
     title: "African History",
@@ -93,7 +93,7 @@ export const projects: Project[] = [
     role: "Personal · fullstack",
     layout: "featured",
     visual: "from-cyan-500/20 via-teal-600/15 to-emerald-500/15",
-    image: "/projects/project-management-light.png",
+    image: "/projects/project-management-light.jpg",
   },
 
 ];

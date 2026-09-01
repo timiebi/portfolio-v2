@@ -14,7 +14,14 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const latestArticles = articles.slice(0, 2);
+  const resendArticle = articles.find((article) =>
+    article.href.includes("how-i-replaced-gmailapp-with-resend"),
+  );
+  const latestArticles = [
+    articles[0],
+    articles[1],
+    resendArticle ?? articles[2],
+  ];
 
   return (
     <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-16 2xl:gap-20">
