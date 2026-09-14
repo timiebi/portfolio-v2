@@ -81,7 +81,7 @@ export function SiteHeader() {
                     <Link
                       href={item.href}
                       aria-current={active ? "page" : undefined}
-                      className={`inline-flex min-h-9 cursor-pointer items-center justify-center rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight ${
+                      className={`inline-flex min-h-9 cursor-pointer items-center justify-center rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight ${
                         active
                           ? "bg-background text-foreground shadow-sm"
                           : "text-muted hover:bg-background/80 hover:text-foreground dark:hover:bg-background/10"
@@ -152,7 +152,7 @@ export function SiteHeader() {
                           href={item.href}
                           onClick={() => setIsOpen(false)}
                           aria-current={active ? "page" : undefined}
-                          className={`font-display text-4xl font-semibold tracking-[-0.03em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-highlight ${
+                          className={`font-sans text-4xl font-semibold tracking-[-0.03em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-highlight ${
                             active ? "text-highlight" : "text-foreground hover:text-highlight"
                           }`}
                         >

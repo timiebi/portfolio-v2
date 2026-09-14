@@ -128,7 +128,7 @@ export function ContactSection({
                 <div className="space-y-2 group">
                   <label
                     htmlFor="name"
-                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted transition-colors group-focus-within:text-highlight"
+                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted transition-colors group-focus-within:text-highlight"
                   >
                     Name
                   </label>
@@ -147,7 +147,7 @@ export function ContactSection({
                 <div className="space-y-2 group">
                   <label
                     htmlFor="email"
-                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted transition-colors group-focus-within:text-highlight"
+                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted transition-colors group-focus-within:text-highlight"
                   >
                     Email
                   </label>
@@ -166,7 +166,7 @@ export function ContactSection({
                 <div className="space-y-2 group">
                   <label
                     htmlFor="message"
-                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted transition-colors group-focus-within:text-highlight"
+                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted transition-colors group-focus-within:text-highlight"
                   >
                     Message
                   </label>

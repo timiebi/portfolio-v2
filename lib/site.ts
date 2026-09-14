@@ -109,8 +109,9 @@ export const site = {
   role: "Senior Frontend Engineer",
   /** Hero body — under the name */
   heroBio: [
-    "I design and build high-performance, accessible, and responsive user interfaces, bridging frontend engineering with modern product design.",
-    "Specializing in Next.js, React, and performance engineering. I focus on optimizing web vitals, crafting intuitive design systems, and authoring clean, production-grade code.",
+    "I’m a software engineer with over 5 years of experience, passionate about building meaningful products and solving interesting problems.",
+    "I enjoy learning, experimenting, and turning ideas into things people can actually use.",
+    "There’s always something new to build.",
   ] as const,
   /** About page section heading (under kicker) */
   aboutSection: {
