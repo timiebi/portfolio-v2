@@ -5,8 +5,8 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { siteShell } from "@/lib/layout";
 import { mainNav, routes } from "@/lib/routes";
 import { site } from "@/lib/site";
-import { eyebrowHighlight } from "@/lib/typography";
-import { motion, AnimatePresence } from "framer-motion";
+import { brandMark, eyebrowHighlight, navLink } from "@/lib/typography";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -15,12 +15,10 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
-  // Close menu when route changes
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
-  // Lock body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -32,7 +30,6 @@ export function SiteHeader() {
     };
   }, [isOpen]);
 
-  // Close menu on screen resize to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -43,7 +40,6 @@ export function SiteHeader() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Close menu on Escape key press
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -55,51 +51,54 @@ export function SiteHeader() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/92 pt-[env(safe-area-inset-top)] dark:bg-background/92">
+    <header className="sticky top-0 z-50 bg-background/80 pt-[env(safe-area-inset-top)] backdrop-blur-xl">
       <div
-        className={`flex min-h-16 items-center justify-between gap-3 sm:min-h-18 sm:gap-4 ${siteShell}`}
+        className={`relative grid min-h-16 grid-cols-[1fr_auto] items-center gap-3 sm:min-h-[4.5rem] md:grid-cols-[1fr_auto_1fr] ${siteShell}`}
       >
         <Link
           href={routes.home}
-          className="group/logo flex min-w-0 max-w-[min(100%,15rem)] shrink cursor-pointer items-center gap-2.5 font-display text-sm font-semibold tracking-[-0.02em] text-foreground min-[400px]:max-w-[min(100%,18rem)] min-[400px]:gap-3 sm:max-w-[min(100%,22rem)] sm:text-[0.9375rem] md:max-w-none"
+          className={`group/logo flex w-fit min-w-0 shrink cursor-pointer items-center gap-2.5 justify-self-start ${brandMark} sm:gap-3`}
         >
           <SiteLogo className="shrink-0 transition-transform duration-300 ease-out group-hover/logo:scale-105" />
-          <span className="truncate sm:hidden">{site.nameShort}</span>
-          <span className="hidden truncate sm:inline">{site.name}</span>
+          <span className="truncate">{site.brand}</span>
         </Link>
 
-        <div className="flex min-w-0 shrink items-center justify-end gap-1.5 sm:gap-3">
+        <nav aria-label="Primary" className="hidden justify-self-center md:block">
+          <ul className="flex items-center gap-1 lg:gap-2">
+            {mainNav.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <li key={item.href} className="shrink-0">
+                  <Link
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={`relative inline-flex min-h-10 cursor-pointer items-center justify-center px-3 py-1.5 ${navLink} transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight ${
+                      active
+                        ? "text-foreground"
+                        : "text-muted hover:text-foreground"
+                    }`}
+                  >
+                    {item.label}
+                    {active ? (
+                      <span
+                        className="absolute bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-foreground"
+                        aria-hidden
+                      />
+                    ) : null}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        <div className="flex min-w-0 shrink items-center justify-end gap-2 justify-self-end sm:gap-3">
           <ThemeToggle />
 
-          {/* Desktop Navigation Menu (md and above) */}
-          <nav aria-label="Primary" className="hidden md:block">
-            <ul className="flex items-center gap-px rounded-full border border-border/80 bg-surface p-px dark:bg-surface-elevated">
-              {mainNav.map((item) => {
-                const active = pathname === item.href;
-                return (
-                  <li key={item.href} className="shrink-0">
-                    <Link
-                      href={item.href}
-                      aria-current={active ? "page" : undefined}
-                      className={`inline-flex min-h-9 cursor-pointer items-center justify-center rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight ${
-                        active
-                          ? "bg-background text-foreground shadow-sm"
-                          : "text-muted hover:bg-background/80 hover:text-foreground dark:hover:bg-background/10"
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-
-          {/* Mobile Navigation Trigger (Hamburger) */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="relative z-50 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-border/80 bg-surface text-foreground transition-colors hover:bg-background/80 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight dark:bg-surface-elevated/80 dark:hover:bg-background/10 md:hidden"
+            className="relative z-50 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-border/80 bg-surface text-foreground transition-colors hover:bg-background/80 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight dark:bg-surface-elevated/80 dark:hover:bg-background/10 md:hidden"
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
             aria-label={isOpen ? "Close main menu" : "Open main menu"}
@@ -125,7 +124,6 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile & Tablet Drawer Panel */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -152,8 +150,8 @@ export function SiteHeader() {
                           href={item.href}
                           onClick={() => setIsOpen(false)}
                           aria-current={active ? "page" : undefined}
-                          className={`font-sans text-4xl font-semibold tracking-[-0.03em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-highlight ${
-                            active ? "text-highlight" : "text-foreground hover:text-highlight"
+                          className={`font-display text-[clamp(2rem,8vw,2.5rem)] font-semibold leading-[1.05] tracking-[-0.035em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-highlight ${
+                            active ? "text-foreground" : "text-foreground/80 hover:text-foreground"
                           }`}
                         >
                           {item.label}
@@ -164,7 +162,6 @@ export function SiteHeader() {
                 </ul>
               </nav>
 
-              {/* Direct email and socials */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -179,51 +176,9 @@ export function SiteHeader() {
                   <p className={eyebrowHighlight}>Direct Email</p>
                   <a
                     href={`mailto:${site.email}`}
-                    className="block font-sans text-lg font-medium text-foreground transition-colors hover:text-highlight break-all"
+                    className="block break-all font-sans text-lg font-medium leading-snug tracking-[-0.015em] text-foreground transition-colors hover:text-highlight"
                   >
                     {site.email}
-                  </a>
-                </div>
-
-                <div className="flex gap-4">
-                  <a
-                    href={site.social.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-muted transition-colors hover:bg-surface-elevated hover:text-highlight"
-                    aria-label="GitHub"
-                  >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                      <path d="M9 18c-4.51 2-5-2-7-2" />
-                    </svg>
-                  </a>
-                  <a
-                    href={site.social.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-muted transition-colors hover:bg-surface-elevated hover:text-highlight"
-                    aria-label="LinkedIn"
-                  >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                      <rect width="4" height="12" x="2" y="9" />
-                      <circle cx="4" cy="4" r="2" />
-                    </svg>
                   </a>
                 </div>
               </motion.div>
@@ -234,4 +189,3 @@ export function SiteHeader() {
     </header>
   );
 }
-

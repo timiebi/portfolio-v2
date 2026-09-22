@@ -1,9 +1,10 @@
 import { FadeIn } from "@/components/fade-in";
 import { SectionHeading } from "@/components/section-heading";
+import { SiteBio } from "@/components/site-bio";
 import { expertise } from "@/lib/expertise";
 import { site } from "@/lib/site";
 import { stackIconSrc } from "@/lib/stack-icons";
-import { eyebrowHighlight } from "@/lib/typography";
+import { bodyCopy, eyebrowHighlight } from "@/lib/typography";
 
 type AboutSectionProps = {
   kicker?: string;
@@ -29,10 +30,8 @@ export function AboutSection({
 
       <div className="grid min-w-0 gap-10 sm:gap-14 lg:grid-cols-12 lg:gap-16">
         <FadeIn className="lg:col-span-6" delay={0.05}>
-          <div className="space-y-6 text-base leading-[1.75] text-muted sm:text-[1.0625rem]">
-            {site.heroBio.map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
-            ))}
+          <div className={`${bodyCopy} space-y-6 text-muted`}>
+            <SiteBio />
           </div>
         </FadeIn>
 
@@ -42,7 +41,7 @@ export function AboutSection({
             <ul className="mt-6 flex flex-wrap gap-2">
               {expertise.map((item) => (
                 <li key={item.label}>
-                  <span className="inline-flex items-center gap-2 rounded-md border border-border/90 bg-background/70 px-3 py-1.5 text-sm text-foreground dark:bg-background/25">
+                    <span className="inline-flex items-center gap-2 rounded-md border border-border/90 bg-background/70 px-3 py-1.5 text-sm tracking-[-0.01em] text-foreground dark:bg-background/25">
                     {item.slug ? (
                       <img
                         src={stackIconSrc(item.slug)}

@@ -5,11 +5,18 @@ type Props = {
 };
 
 /**
- * Custom mark: shared vertical stem with mid crossbar (T) and K legs — TK / Timiebi Kosu.
- * Renders as crisp SVG; uses theme colors (light/dark).
+ * Signal mark — a rising path with two nodes.
+ * Not letters. Reads as motion / making / shipping.
  */
 export function SiteLogo({ className = "", variant = "header" }: Props) {
-  const size = variant === "footer" ? "h-11 w-11 sm:h-12 sm:w-12" : "h-9 w-9 shrink-0";
+  const size =
+    variant === "footer"
+      ? "h-11 w-11 sm:h-12 sm:w-12"
+      : "h-9 w-9 shrink-0 sm:h-10 sm:w-10";
+
+  const plate = variant === "footer" ? "fill-white" : "fill-foreground";
+  const mark = variant === "footer" ? "fill-black" : "fill-background";
+  const stroke = variant === "footer" ? "stroke-black" : "stroke-background";
 
   return (
     <svg
@@ -19,23 +26,15 @@ export function SiteLogo({ className = "", variant = "header" }: Props) {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden
     >
-      <rect
-        x="1.5"
-        y="1.5"
-        width="37"
-        height="37"
-        rx="10"
-        className="fill-surface stroke-border dark:fill-surface-elevated"
-        strokeWidth="1"
-      />
+      <rect x="1" y="1" width="38" height="38" rx="12" className={plate} />
       <path
-        d="M11 11v18M11 20h8.5M11 20l10.5 9M11 20l10.5-9"
-        className="stroke-foreground"
-        strokeWidth="2.25"
+        d="M11 26.2C12.4 17.8 20.2 12.2 28.4 13.8"
+        className={stroke}
+        strokeWidth="2.5"
         strokeLinecap="round"
-        strokeLinejoin="round"
       />
-      <circle cx="28.5" cy="11.5" r="2.75" className="fill-highlight" />
+      <circle cx="11" cy="26.2" r="2.05" className={mark} />
+      <circle cx="28.6" cy="13.7" r="2.85" className={mark} />
     </svg>
   );
 }

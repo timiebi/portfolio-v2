@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { projectsGridShell } from "@/lib/layout";
 import { projects } from "@/lib/projects";
 import { routes } from "@/lib/routes";
+import { textLink } from "@/lib/typography";
 import Link from "next/link";
 
 type FeaturedWorkProps = {
@@ -46,7 +47,7 @@ export function FeaturedWork({ variant = "default" }: FeaturedWorkProps) {
         <FadeIn className={isHome ? "mt-9" : "mt-10"} delay={0.14}>
           <Link
             href={routes.work}
-            className="group inline-flex cursor-pointer items-center gap-2 border-b border-transparent font-mono text-sm font-medium text-foreground pb-0.5 transition-colors hover:border-highlight hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+            className={`group inline-flex cursor-pointer items-center gap-2 border-b border-transparent ${textLink} text-foreground pb-0.5 transition-colors hover:border-highlight hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight`}
           >
             All work
             <span className="transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden>

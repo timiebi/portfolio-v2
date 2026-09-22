@@ -12,7 +12,7 @@ export default function ContactPage() {
     <ContactSection
       kicker="Contact"
       title="Say what you need."
-      description="Brief context beats a polished pitch. I read everything; I reply when there is a real fit."
+      description=""
     />
   );
 }

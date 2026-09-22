@@ -2,11 +2,11 @@
 
 import { SiteLogo } from "@/components/site-logo";
 import { siteShell } from "@/lib/layout";
-import { mainNav, routes } from "@/lib/routes";
+import { mainNav } from "@/lib/routes";
 import { site } from "@/lib/site";
-import { eyebrowHighlight } from "@/lib/typography";
-import Link from "next/link";
+import { brandMark, eyebrowHighlight, monoLegal } from "@/lib/typography";
 import { useLenis } from "lenis/react";
+import Link from "next/link";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -27,25 +27,17 @@ export function SiteFooter() {
         <div className="space-y-4">
           <div className="flex min-w-0 flex-wrap items-center gap-3 sm:gap-4">
             <SiteLogo variant="footer" />
-            <p className="min-w-0 max-w-full font-display text-base font-semibold tracking-[-0.02em] text-white sm:text-lg">
+            <p className={`min-w-0 max-w-full ${brandMark} text-white`}>
               {site.name}
             </p>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-zinc-400">{site.role}</p>
-          <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-zinc-500">© {year}</p>
+          <p className="max-w-sm text-sm leading-[1.65] tracking-[-0.01em] text-zinc-400">{site.role}</p>
+          <p className={`${monoLegal} text-zinc-500`}>© {year}</p>
         </div>
         <div className="flex flex-col gap-10 sm:flex-row sm:gap-20">
           <nav aria-label="Site">
             <p className={eyebrowHighlight}>Site</p>
-            <ul className="mt-4 flex flex-col gap-2.5 text-sm">
-              <li>
-                <Link
-                  href={routes.home}
-                  className="cursor-pointer text-zinc-400 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
-                >
-                  Home
-                </Link>
-              </li>
+            <ul className="mt-4 flex flex-col gap-2.5 text-sm tracking-[-0.01em]">
               {mainNav.map((item) => (
                 <li key={item.href}>
                   <Link
@@ -60,7 +52,7 @@ export function SiteFooter() {
           </nav>
           <div>
             <p className={eyebrowHighlight}>Online</p>
-            <ul className="mt-4 flex flex-col gap-2.5 text-sm">
+            <ul className="mt-4 flex flex-col gap-2.5 text-sm tracking-[-0.01em]">
               <li>
                 <a
                   href={site.social.github}

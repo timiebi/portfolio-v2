@@ -1,23 +1,31 @@
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Caveat, IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
 
 /**
- * Two-family system:
+ * Type system:
  * - Space Grotesk → headings / display (`--font-space-grotesk`, `font-display`)
- * - Inter → body, UI, labels, dates (`--font-inter`, `font-sans` and `font-mono`)
+ * - IBM Plex Sans → body, UI, labels (`--font-ibm-plex-sans`, `font-sans` and `font-mono`)
+ * - Caveat → handwritten annotations (`--font-caveat`, `font-hand`)
  *
- * `font-mono` is mapped to Inter on purpose so existing label/meta classes
- * do not introduce a third family.
+ * `font-mono` maps to IBM Plex Sans so label/meta classes stay in the same family.
  */
-export const inter = Inter({
-  variable: "--font-inter",
+export const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 export const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
-export const fontVariables = `${inter.variable} ${spaceGrotesk.variable}`;
+export const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+export const fontVariables = `${ibmPlexSans.variable} ${spaceGrotesk.variable} ${caveat.variable}`;

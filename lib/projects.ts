@@ -17,10 +17,10 @@ export type Project = {
 /** Live projects — screenshots in `public/projects/`. */
 export const projects: Project[] = [
   {
-    title: "African History",
+    title: "Gesi",
     description:
       "The Living Archive — stories, timelines, cultures, and exhibitions. Next.js on Vercel with a NestJS backend: Prisma on PostgreSQL, JWT auth, Swagger, Cloudinary, and mail. ⌘K search, themes, contributor flows.",
-    href: "https://history-archive-nu.vercel.app/",
+    href: "https://gesi.africa",
     tags: [
       "Next.js",
       "NestJS",
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     image: "/projects/afristock.png",
   },
   {
-    title: "Project Management Platform",
+    title: "Siteflow",
     description:
       "Cross-industry project management: workspaces, teams, projects, deadlines, and notifications. Next.js on Vercel, Neon, light/dark UI.",
     href: "https://project-management-neon-ten.vercel.app/",

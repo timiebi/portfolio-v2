@@ -1,5 +1,5 @@
 import type { Project } from "@/lib/projects";
-import { monoTag, projectMetaRow } from "@/lib/typography";
+import { bodySmall, cardTitle, monoTag, projectMetaRow } from "@/lib/typography";
 import Image from "next/image";
 
 type Props = {
@@ -79,10 +79,10 @@ export function ProjectCard({ project, priority = false }: Props) {
   const textBlock = (
     <div className="flex flex-1 flex-col gap-2 p-5 sm:p-6">
       {meta}
-      <h3 className="font-display text-lg font-semibold tracking-[-0.02em] text-foreground transition-colors group-hover:text-highlight sm:text-xl">
+      <h3 className={`${cardTitle} transition-colors group-hover:text-highlight`}>
         {project.title}
       </h3>
-      <p className="text-sm leading-relaxed text-muted">{project.description}</p>
+      <p className={bodySmall}>{project.description}</p>
       <ul className="flex flex-wrap gap-2 pt-1" aria-label="Technologies">
         {project.tags.map((tag) => (
           <li key={tag}>

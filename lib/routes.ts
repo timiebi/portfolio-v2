@@ -7,7 +7,8 @@ export const routes = {
 } as const;
 
 export const mainNav = [
-  { href: routes.work, label: "Work" },
+  { href: routes.home, label: "Home" },
+  { href: routes.work, label: "Project" },
   { href: routes.insights, label: "Insights" },
   { href: routes.about, label: "About" },
   { href: routes.contact, label: "Contact" },

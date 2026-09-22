@@ -3,8 +3,8 @@
 import { FadeIn } from "@/components/fade-in";
 import { SectionHeading } from "@/components/section-heading";
 import { site } from "@/lib/site";
-import { eyebrowHighlight } from "@/lib/typography";
-import { useState, FormEvent } from "react";
+import { bodySmall, buttonLabel, cardTitleLg, eyebrowHighlight, eyebrowMuted } from "@/lib/typography";
+import { FormEvent, useState } from "react";
 
 type ContactSectionProps = {
   kicker?: string;
@@ -15,7 +15,7 @@ type ContactSectionProps = {
 export function ContactSection({
   kicker = "Contact",
   title = "Say what you need.",
-  description = "Brief context beats a polished pitch. I read everything; I reply when there is a real fit.",
+  description = "Brief context beats a polished pitch. I read everything;",
 }: ContactSectionProps) {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -97,15 +97,15 @@ export function ContactSection({
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
-            <h3 className="font-display text-xl font-semibold tracking-[-0.025em] text-foreground sm:text-2xl mb-3">
+            <h3 className={`${cardTitleLg} mb-3`}>
               Message Sent!
             </h3>
-            <p className="mx-auto max-w-sm text-sm leading-relaxed text-muted mb-8">
+            <p className={`${bodySmall} mx-auto max-w-sm mb-8`}>
               Thank you for reaching out. I read every message and will get back to you as soon as there is a fit.
             </p>
             <button
               onClick={() => setIsSent(false)}
-              className="inline-flex h-11 cursor-pointer items-center justify-center rounded-full border border-border bg-surface px-6 text-sm font-semibold text-foreground transition-all duration-200 hover:border-highlight/35 hover:bg-surface-elevated focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight dark:bg-surface-elevated/80"
+              className={`inline-flex h-11 cursor-pointer items-center justify-center rounded-full border border-border bg-surface px-6 ${buttonLabel} text-foreground transition-all duration-200 hover:border-highlight/35 hover:bg-surface-elevated focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight dark:bg-surface-elevated/80`}
             >
               Send another message
             </button>
@@ -128,7 +128,7 @@ export function ContactSection({
                 <div className="space-y-2 group">
                   <label
                     htmlFor="name"
-                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted transition-colors group-focus-within:text-highlight"
+                    className={`block ${eyebrowMuted} transition-colors group-focus-within:text-highlight`}
                   >
                     Name
                   </label>
@@ -139,7 +139,7 @@ export function ContactSection({
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full rounded-xl border border-border bg-background/50 px-4 py-3.5 text-sm text-foreground placeholder-muted/40 transition-all duration-200 outline-hidden hover:border-border/120 focus:border-highlight focus:ring-3 focus:ring-highlight/10 dark:bg-background/25"
+                    className="w-full rounded-xl border border-border bg-background/50 px-4 py-3.5 text-base tracking-[-0.011em] text-foreground placeholder-muted/40 transition-all duration-200 outline-hidden hover:border-border/120 focus:border-highlight focus:ring-3 focus:ring-highlight/10 dark:bg-background/25 sm:text-sm"
                     placeholder="Your name"
                   />
                 </div>
@@ -147,7 +147,7 @@ export function ContactSection({
                 <div className="space-y-2 group">
                   <label
                     htmlFor="email"
-                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted transition-colors group-focus-within:text-highlight"
+                    className={`block ${eyebrowMuted} transition-colors group-focus-within:text-highlight`}
                   >
                     Email
                   </label>
@@ -158,7 +158,7 @@ export function ContactSection({
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full rounded-xl border border-border bg-background/50 px-4 py-3.5 text-sm text-foreground placeholder-muted/40 transition-all duration-200 outline-hidden hover:border-border/120 focus:border-highlight focus:ring-3 focus:ring-highlight/10 dark:bg-background/25"
+                    className="w-full rounded-xl border border-border bg-background/50 px-4 py-3.5 text-base tracking-[-0.011em] text-foreground placeholder-muted/40 transition-all duration-200 outline-hidden hover:border-border/120 focus:border-highlight focus:ring-3 focus:ring-highlight/10 dark:bg-background/25 sm:text-sm"
                     placeholder="email@example.com"
                   />
                 </div>
@@ -166,7 +166,7 @@ export function ContactSection({
                 <div className="space-y-2 group">
                   <label
                     htmlFor="message"
-                    className="block font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted transition-colors group-focus-within:text-highlight"
+                    className={`block ${eyebrowMuted} transition-colors group-focus-within:text-highlight`}
                   >
                     Message
                   </label>
@@ -177,7 +177,7 @@ export function ContactSection({
                     rows={5}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full resize-none rounded-xl border border-border bg-background/50 px-4 py-3.5 text-sm text-foreground placeholder-muted/40 transition-all duration-200 outline-hidden hover:border-border/120 focus:border-highlight focus:ring-3 focus:ring-highlight/10 dark:bg-background/25"
+                    className="w-full resize-none rounded-xl border border-border bg-background/50 px-4 py-3.5 text-base tracking-[-0.011em] text-foreground placeholder-muted/40 transition-all duration-200 outline-hidden hover:border-border/120 focus:border-highlight focus:ring-3 focus:ring-highlight/10 dark:bg-background/25 sm:text-sm"
                     placeholder="Tell me about your project, team, or opportunity..."
                   />
                 </div>
@@ -185,7 +185,7 @@ export function ContactSection({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group relative flex min-h-12 w-full cursor-pointer touch-manipulation items-center justify-center gap-2.5 rounded-full bg-foreground px-8 text-sm font-semibold text-background transition-all duration-300 hover:bg-foreground/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight disabled:cursor-not-allowed disabled:opacity-50"
+                  className={`group relative flex min-h-12 w-full cursor-pointer touch-manipulation items-center justify-center gap-2.5 rounded-full bg-foreground px-8 ${buttonLabel} text-background transition-all duration-300 hover:bg-foreground/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight disabled:cursor-not-allowed disabled:opacity-50`}
                 >
                   {isSubmitting ? (
                     <>
@@ -251,12 +251,12 @@ export function ContactSection({
                   <div className="min-w-0 max-w-full">
                     <a
                       href={`mailto:${site.email}`}
-                      className="inline-block cursor-pointer break-all font-display text-[clamp(0.95rem,4.8vw,1.75rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-foreground transition-colors hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-highlight"
+                      className="inline-block cursor-pointer break-all font-display text-[clamp(1rem,4.2vw,1.5rem)] font-semibold leading-[1.2] tracking-[-0.025em] text-foreground transition-colors hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-highlight"
                     >
                       {site.email}
                     </a>
                   </div>
-                  <p className="text-xs leading-relaxed text-muted max-w-md">
+                  <p className={`${bodySmall} max-w-md`}>
                     For recruiting or collaboration opportunities, feel free to drop a line directly. I
                     read everything.
                   </p>
@@ -274,7 +274,7 @@ export function ContactSection({
                       href={site.social.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex h-11 items-center justify-between rounded-xl border border-border bg-background/50 px-5 text-sm font-medium text-foreground transition-all duration-300 hover:border-highlight/35 hover:bg-surface-elevated dark:bg-background/25"
+                      className="group flex h-11 items-center justify-between rounded-xl border border-border bg-background/50 px-5 text-sm font-medium tracking-[-0.01em] text-foreground transition-all duration-300 hover:border-highlight/35 hover:bg-surface-elevated dark:bg-background/25"
                     >
                       <span className="flex items-center gap-2.5">
                         <svg
@@ -312,7 +312,7 @@ export function ContactSection({
                       href={site.social.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex h-11 items-center justify-between rounded-xl border border-border bg-background/50 px-5 text-sm font-medium text-foreground transition-all duration-300 hover:border-highlight/35 hover:bg-surface-elevated dark:bg-background/25"
+                      className="group flex h-11 items-center justify-between rounded-xl border border-border bg-background/50 px-5 text-sm font-medium tracking-[-0.01em] text-foreground transition-all duration-300 hover:border-highlight/35 hover:bg-surface-elevated dark:bg-background/25"
                     >
                       <span className="flex items-center gap-2.5">
                         <svg

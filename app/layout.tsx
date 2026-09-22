@@ -1,4 +1,3 @@
-import { CustomCursor } from "@/components/custom-cursor";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { ThemeProvider } from "@/components/theme-provider";
 import { fontVariables } from "@/lib/fonts";
@@ -65,9 +64,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://cdn.simpleicons.org" />
       </head>
-      <body className="bg-grid-faint relative min-h-full min-w-0 overflow-x-hidden bg-background pb-[env(safe-area-inset-bottom)] text-foreground font-sans antialiased [text-size-adjust:100%]">
+      <body className="relative min-h-full min-w-0 overflow-x-hidden bg-background pb-[env(safe-area-inset-bottom)] text-foreground font-sans antialiased [text-size-adjust:100%]">
         <ThemeProvider>
-          <CustomCursor />
           <SmoothScroll>{children}</SmoothScroll>
         </ThemeProvider>
       </body>

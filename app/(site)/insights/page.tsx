@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { FadeIn } from "@/components/fade-in";
 import { SectionHeading } from "@/components/section-heading";
 import { articles } from "@/lib/articles";
-import { monoTag, projectMetaRow } from "@/lib/typography";
+import { bodySmall, cardTitle, monoTag, projectMetaRow } from "@/lib/typography";
 
 export const metadata: Metadata = {
   title: "Insights",
@@ -33,7 +33,7 @@ export default function InsightsPage() {
                 <span>{article.readTime}</span>
               </div>
 
-              <h3 className="font-display text-lg font-semibold tracking-[-0.02em] text-foreground transition-colors group-hover:text-highlight sm:text-xl">
+              <h3 className={`${cardTitle} transition-colors group-hover:text-highlight`}>
                 <a
                   href={article.href}
                   target="_blank"
@@ -44,7 +44,7 @@ export default function InsightsPage() {
                 </a>
               </h3>
 
-              <p className="max-w-2xl text-sm leading-relaxed text-muted">
+              <p className={`${bodySmall} max-w-2xl`}>
                 {article.description}
               </p>
 
@@ -52,7 +52,7 @@ export default function InsightsPage() {
                 {article.tags.map((tag) => (
                   <span
                     key={tag}
-                    className={`inline-flex rounded-md border border-border/80 bg-surface px-2 py-0.5 text-[10px] font-medium dark:bg-surface-elevated/40 ${monoTag}`}
+                    className={`inline-flex rounded-md border border-border/80 bg-surface px-2 py-0.5 dark:bg-surface-elevated/40 ${monoTag}`}
                   >
                     {tag}
                   </span>

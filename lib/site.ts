@@ -87,7 +87,7 @@ export const homeTicker = {
     },
     {
       kind: "News",
-      text: "Open to collaborate",
+      text: "ONLINE",
     },
     {
       kind: "Note",
@@ -104,14 +104,18 @@ export const homeTicker = {
 export const site = {
   /** Full name — used in hero & footer */
   name: "Timiebi Nicholas Kosu",
+  /** Hero headline — last name first, rendered uppercase */
+  nameHeadline: ["Kosu,", "Timiebi Nicholas"] as const,
   /** Shorter line for the sticky header on small screens */
   nameShort: "Timiebi Kosu",
+  /** One-word mark in the new header */
+  brand: "Timiebi",
   role: "Senior Frontend Engineer",
   /** Hero body — under the name */
   heroBio: [
-    "I’m a software engineer with over 5 years of experience, passionate about building meaningful products and solving interesting problems.",
-    "I enjoy learning, experimenting, and turning ideas into things people can actually use.",
-    "There’s always something new to build.",
+    "I'm a software engineer with over 5 years of experience, passionate about building meaningful products and solving interesting problems. Most of what I ship — and break — lives on my GitHub.",
+    "Away from the screen, you'll usually find me on a football pitch, chasing the ball with the same instinct and quick decision-making I bring to a hard bug. When I'm not playing, there's music running in the background — Afrobeats, hip-hop, jazz, house music, whatever the day calls for.",
+    "I also write, over on Insights — part technical notes to my future self, part thoughts on building things that last.",
   ] as const,
   /** About page section heading (under kicker) */
   aboutSection: {
@@ -120,9 +124,17 @@ export const site = {
       "Frontend engineering with Next.js, React, and TypeScript. Building accessible, responsive interfaces with custom interactions, lightweight animations, and zero-overhead performance optimization.",
   },
   email: "kosutimiebinicholas@gmail.com",
-  availability: "",
+  availability: "ONLINE",
+  portrait: {
+    src: "/portrait.jpg",
+    alt: "Timiebi Nicholas Kosu",
+    width: 769,
+    height: 1024,
+  },
+  /** Wordmarks drawn from shipped work */
+  trusted: ["Bamboo", "Gesi", "Siteflow", "TidiViews", "AfriStock", "Villagers"] as const,
   social: {
-    github: "https://github.com/timiebikosu",
+    github: "https://github.com/timiebi",
     linkedin: "https://www.linkedin.com/in/nicholas-kosu",
   },
 } as const;

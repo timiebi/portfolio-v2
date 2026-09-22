@@ -2,7 +2,7 @@
 
 import { FadeIn } from "@/components/fade-in";
 import { SectionHeading } from "@/components/section-heading";
-import { monoTag, eyebrowHighlight } from "@/lib/typography";
+import { bodySmall, cardTitle, eyebrowHighlight, monoTag } from "@/lib/typography";
 
 type SkillCardProps = {
   title: string;
@@ -22,17 +22,17 @@ function SkillCard({ title, subtitle, description, tags, gradient }: SkillCardPr
       />
 
       <span className={eyebrowHighlight}>{subtitle}</span>
-      <h3 className="mt-2.5 font-display text-lg font-semibold tracking-[-0.02em] text-foreground sm:text-xl">
+      <h3 className={`mt-2.5 ${cardTitle}`}>
         {title}
       </h3>
-      <p className="mt-3 text-sm leading-relaxed text-muted">
+      <p className={`mt-3 ${bodySmall}`}>
         {description}
       </p>
       
       <ul className="mt-6 flex flex-wrap gap-1.5" aria-label="Expertise technologies">
         {tags.map((tag) => (
           <li key={tag}>
-            <span className={`inline-flex rounded-md border border-border/80 bg-surface px-2 py-0.5 text-[11px] font-medium dark:bg-surface-elevated/60 ${monoTag}`}>
+            <span className={`inline-flex rounded-md border border-border/80 bg-surface px-2 py-0.5 dark:bg-surface-elevated/60 ${monoTag}`}>
               {tag}
             </span>
           </li>

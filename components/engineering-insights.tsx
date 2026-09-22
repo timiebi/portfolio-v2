@@ -3,7 +3,7 @@
 import { FadeIn } from "@/components/fade-in";
 import { SectionHeading } from "@/components/section-heading";
 import { articles } from "@/lib/articles";
-import { eyebrowHighlight, monoTag, projectMetaRow } from "@/lib/typography";
+import { bodySmall, cardTitle, cardTitleLg, eyebrowHighlight, monoTag, projectMetaRow } from "@/lib/typography";
 
 export function EngineeringInsights() {
   const featured = articles[0];
@@ -38,7 +38,7 @@ export function EngineeringInsights() {
               
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="inline-flex items-center gap-1 rounded-full bg-highlight/10 px-3 py-1 font-mono text-[9px] font-semibold uppercase tracking-wider text-highlight">
+                  <span className={`inline-flex items-center gap-1 rounded-full bg-highlight/10 px-3 py-1 ${eyebrowHighlight}`}>
                     ★ Featured
                   </span>
                   <div className={projectMetaRow}>
@@ -48,11 +48,11 @@ export function EngineeringInsights() {
                   </div>
                 </div>
 
-                <h3 className="font-display text-xl font-semibold leading-[1.2] tracking-[-0.025em] text-foreground transition-colors group-hover:text-highlight sm:text-2xl">
+                <h3 className={`${cardTitleLg} transition-colors group-hover:text-highlight`}>
                   {featured.title}
                 </h3>
                 
-                <p className="text-sm leading-relaxed text-muted">
+                <p className={bodySmall}>
                   {featured.description}
                 </p>
               </div>
@@ -61,14 +61,14 @@ export function EngineeringInsights() {
                 <ul className="flex flex-wrap gap-1.5" aria-label="Article topics">
                   {featured.tags.map((tag) => (
                     <li key={tag}>
-                      <span className={`inline-flex rounded-md border border-border/80 bg-surface/50 px-2 py-0.5 text-[10px] font-medium dark:bg-surface-elevated/40 ${monoTag}`}>
+                      <span className={`inline-flex rounded-md border border-border/80 bg-surface/50 px-2 py-0.5 dark:bg-surface-elevated/40 ${monoTag}`}>
                         {tag}
                       </span>
                     </li>
                   ))}
                 </ul>
 
-                <span className="group-hover:translate-x-1 inline-flex items-center gap-1 font-mono text-[11px] font-semibold uppercase tracking-wider text-highlight transition-transform duration-200">
+                <span className={`group-hover:translate-x-1 inline-flex items-center gap-1 ${eyebrowHighlight} transition-transform duration-200`}>
                   Read <span aria-hidden>→</span>
                 </span>
               </div>
@@ -93,11 +93,11 @@ export function EngineeringInsights() {
                     <span>{article.readTime}</span>
                   </div>
 
-                  <h3 className="font-display text-base font-semibold leading-[1.25] tracking-[-0.02em] text-foreground transition-colors group-hover:text-highlight sm:text-lg">
+                  <h3 className={`${cardTitle} transition-colors group-hover:text-highlight`}>
                     {article.title}
                   </h3>
                   
-                  <p className="line-clamp-2 text-xs leading-relaxed text-muted">
+                  <p className={`${bodySmall} line-clamp-2`}>
                     {article.description}
                   </p>
                 </div>
@@ -106,14 +106,14 @@ export function EngineeringInsights() {
                   <ul className="flex flex-wrap gap-1" aria-label="Article topics">
                     {article.tags.slice(0, 2).map((tag) => (
                       <li key={tag}>
-                        <span className={`inline-flex rounded-md border border-border/80 bg-surface/50 px-1.5 py-0.5 text-[9px] font-medium dark:bg-surface-elevated/40 ${monoTag}`}>
+                        <span className={`inline-flex rounded-md border border-border/80 bg-surface/50 px-1.5 py-0.5 dark:bg-surface-elevated/40 ${monoTag}`}>
                           {tag}
                         </span>
                       </li>
                     ))}
                   </ul>
 
-                  <span className="group-hover:translate-x-0.5 inline-flex items-center gap-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-highlight transition-transform duration-200">
+                  <span className={`group-hover:translate-x-0.5 inline-flex items-center gap-1 ${eyebrowHighlight} transition-transform duration-200`}>
                     Read <span aria-hidden>→</span>
                   </span>
                 </div>

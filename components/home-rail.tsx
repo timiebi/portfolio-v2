@@ -55,7 +55,7 @@ function TickerRow({ item }: { item: HomeTickerItem }) {
 
     return (
       <div className="py-5 first:pt-2">
-        <p className={`font-mono text-[9px] font-semibold uppercase tracking-[0.14em] ${kindClass}`}>
+        <p className={`font-mono text-[11px] font-medium uppercase tracking-[0.16em] ${kindClass}`}>
           Stack
         </p>
         <div className="mt-2">{body}</div>
@@ -76,7 +76,7 @@ function TickerRow({ item }: { item: HomeTickerItem }) {
 
   return (
     <div className="py-5 first:pt-2">
-      <p className={`font-mono text-[9px] font-semibold uppercase tracking-[0.14em] ${kindClass}`}>
+        <p className={`font-mono text-[11px] font-medium uppercase tracking-[0.16em] ${kindClass}`}>
         {item.kind}
       </p>
       <div className="mt-2">{body}</div>

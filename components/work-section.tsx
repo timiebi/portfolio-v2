@@ -5,7 +5,7 @@ import { ProjectCard } from "@/components/project-card";
 import { SectionHeading } from "@/components/section-heading";
 import { projectsGridShell } from "@/lib/layout";
 import { Project, projects } from "@/lib/projects";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
 const FILTER_CATEGORIES = ["All", "Next.js", "React", "TypeScript", "Fullstack"] as const;
@@ -16,6 +16,7 @@ export type WorkSectionProps = {
   title?: string;
   description?: string;
   titleId?: string;
+  align?: "start" | "center";
 };
 
 const matchesFilter = (project: Project, filter: FilterCategory) => {
@@ -28,10 +29,11 @@ const matchesFilter = (project: Project, filter: FilterCategory) => {
 };
 
 export function WorkSection({
-  kicker = "Archive",
-  title = "Work",
-  titleId = "work-heading",
-  description = "Personal projects and production work — from data layer and APIs through polished UI.",
+  kicker = "Selected",
+  title = "Project",
+  titleId = "project-heading",
+  description,
+  align = "center",
 }: WorkSectionProps) {
   const [selectedFilter, setSelectedFilter] = useState<FilterCategory>("All");
 
@@ -45,12 +47,13 @@ export function WorkSection({
           title={title}
           titleId={titleId}
           description={description}
+          align={align}
         />
       </FadeIn>
 
       {/* Glassmorphic Filter Row */}
       <FadeIn delay={0.05}>
-        <div className="mb-10 flex flex-wrap gap-2 pb-2">
+        <div className="mb-10 flex flex-wrap justify-center gap-2 pb-2">
           {FILTER_CATEGORIES.map((category) => {
             const isActive = selectedFilter === category;
             return (
@@ -58,7 +61,7 @@ export function WorkSection({
                 key={category}
                 type="button"
                 onClick={() => setSelectedFilter(category)}
-                className={`inline-flex h-9 cursor-pointer items-center justify-center rounded-full px-5 text-xs font-semibold tracking-wider transition-all duration-300 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight ${
+                className={`inline-flex h-9 cursor-pointer items-center justify-center rounded-full px-5 text-[13px] font-medium tracking-[-0.01em] transition-all duration-300 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight ${
                   isActive
                     ? "bg-foreground text-background shadow-md"
                     : "border border-border bg-surface/30 text-muted hover:border-highlight/35 hover:text-highlight dark:bg-surface-elevated/5"
