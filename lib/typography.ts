@@ -80,4 +80,4 @@ export const textLink = "text-sm font-medium tracking-[-0.01em]";
 
 /** Section heading supporting line */
 export const sectionDescription =
-  "w-full max-w-none text-pretty text-sm leading-[1.65] tracking-[-0.01em] text-muted sm:max-w-md md:text-right md:text-[0.9375rem] lg:max-w-lg lg:text-base lg:leading-[1.65]";
+  "w-full max-w-none text-pretty text-sm leading-[1.65] tracking-[-0.01em] text-muted sm:max-w-md md:text-[0.9375rem] lg:max-w-lg lg:text-base lg:leading-[1.65]";

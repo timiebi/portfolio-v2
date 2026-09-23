@@ -1,5 +1,5 @@
 import type { Project } from "@/lib/projects";
-import { bodySmall, cardTitle, monoTag, projectMetaRow } from "@/lib/typography";
+import { bodySmall, cardTitle, monoTag } from "@/lib/typography";
 import Image from "next/image";
 
 type Props = {
@@ -66,19 +66,8 @@ function Visual({
 }
 
 export function ProjectCard({ project, priority = false }: Props) {
-  const meta = (
-    <div className={projectMetaRow}>
-      <span className="text-highlight">{project.year}</span>
-      <span className="text-border" aria-hidden>
-        ·
-      </span>
-      <span>{project.role}</span>
-    </div>
-  );
-
   const textBlock = (
     <div className="flex flex-1 flex-col gap-2 p-5 sm:p-6">
-      {meta}
       <h3 className={`${cardTitle} transition-colors group-hover:text-highlight`}>
         {project.title}
       </h3>

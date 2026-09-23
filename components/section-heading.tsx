@@ -23,10 +23,10 @@ export function SectionHeading({
   const shell = compact
     ? centered
       ? "mb-10 flex flex-col items-center gap-4 border-b border-border/60 pb-8 text-center md:mb-12 md:pb-10"
-      : "mb-10 flex flex-col gap-4 border-b border-border/60 pb-8 md:mb-12 md:flex-row md:items-end md:justify-between md:gap-8 md:pb-10"
+      : "mb-10 flex flex-col gap-4 border-b border-border/60 pb-8 md:mb-12 md:pb-10 lg:flex-row lg:items-end lg:justify-between lg:gap-8"
     : centered
       ? "mb-12 flex flex-col items-center gap-5 border-b border-border/80 pb-10 text-center md:mb-16 md:pb-12"
-      : "mb-12 flex flex-col gap-5 border-b border-border/80 pb-10 md:mb-16 md:flex-row md:items-end md:justify-between md:gap-10 md:pb-12";
+      : "mb-12 flex flex-col gap-5 border-b border-border/80 pb-10 md:mb-16 md:pb-12 lg:flex-row lg:items-end lg:justify-between lg:gap-10";
 
   return (
     <div className={`min-w-0 ${shell}`}>
@@ -40,7 +40,7 @@ export function SectionHeading({
         </h2>
       </div>
       {description ? (
-        <p className={`${sectionDescription} ${centered ? "md:text-center" : ""}`}>
+        <p className={`${sectionDescription} ${centered ? "lg:text-center" : "lg:text-right"}`}>
           {description}
         </p>
       ) : null}

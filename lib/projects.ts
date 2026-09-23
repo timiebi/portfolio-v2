@@ -26,6 +26,8 @@ export const projects: Project[] = [
       "NestJS",
       "Prisma",
       "PostgreSQL",
+      "Docker",
+      "AWS",
       "TypeScript",
       "TanStack Query",
     ],
@@ -86,9 +88,9 @@ export const projects: Project[] = [
   {
     title: "Siteflow",
     description:
-      "Cross-industry project management: workspaces, teams, projects, deadlines, and notifications. Next.js on Vercel, Neon, light/dark UI.",
+      "Cross-industry project management: workspaces, teams, projects, deadlines, and notifications. Next.js on Vercel, PostgreSQL, light/dark UI.",
     href: "https://project-management-neon-ten.vercel.app/",
-    tags: ["Next.js", "React", "Neon", "TypeScript", "PWA"],
+    tags: ["Next.js", "React", "PostgreSQL", "TypeScript", "PWA"],
     year: "2026",
     role: "Personal · fullstack",
     layout: "featured",

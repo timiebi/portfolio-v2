@@ -68,6 +68,7 @@ export default function RootLayout({
         <ThemeProvider>
           <SmoothScroll>{children}</SmoothScroll>
         </ThemeProvider>
+        <div id="site-overlays" />
       </body>
     </html>
   );

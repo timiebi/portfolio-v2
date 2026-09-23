@@ -34,7 +34,7 @@ export function HeroSection() {
                   className={`${heroTitle} uppercase`}
                 >
                   {site.nameHeadline[0]}
-                  <span className="mt-0 block whitespace-nowrap">
+                  <span className="mt-0 block">
                     {site.nameHeadline[1]}
                   </span>
                 </h1>
@@ -129,7 +129,7 @@ export function HeroSection() {
 
 function PortraitFrame() {
   return (
-    <div className="relative mx-auto w-full max-w-[22rem] sm:max-w-[26rem] lg:ml-auto lg:max-w-[32rem]">
+    <div className="relative mx-auto w-full max-w-[22rem] overflow-x-clip sm:max-w-[26rem] lg:ml-auto lg:overflow-visible lg:max-w-[32rem]">
       <div className="relative aspect-[4/5] w-[70%] sm:w-[72%]">
         <div
           className="hero-blob absolute -right-8 -top-10 h-40 w-36 bg-[#d7d5ee] sm:-right-14 sm:h-52 sm:w-48 dark:bg-[#3f3d5c]"
