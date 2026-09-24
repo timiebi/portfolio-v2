@@ -31,7 +31,7 @@ export function SectionHeading({
   return (
     <div className={`min-w-0 ${shell}`}>
       <div className={`min-w-0 space-y-3 ${centered ? "max-w-3xl" : "max-w-2xl"}`}>
-        <p className={eyebrowHighlight}>{index}</p>
+        {index ? <p className={eyebrowHighlight}>{index}</p> : null}
         <h2
           id={titleId}
           className={sectionTitle}

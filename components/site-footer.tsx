@@ -73,6 +73,16 @@ export function SiteFooter() {
                   LinkedIn
                 </a>
               </li>
+              <li>
+                <a
+                  href={site.cv}
+                  className="cursor-pointer text-zinc-400 transition-colors hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Resume
+                </a>
+              </li>
             </ul>
           </div>
         </div>
