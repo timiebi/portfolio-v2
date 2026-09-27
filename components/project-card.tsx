@@ -1,5 +1,4 @@
 import type { Project } from "@/lib/projects";
-import { bodySmall, cardTitle, monoTag } from "@/lib/typography";
 import Image from "next/image";
 
 type Props = {
@@ -12,120 +11,56 @@ function externalLinkProps(href: string) {
   return { target: "_blank" as const, rel: "noopener noreferrer" };
 }
 
-function Visual({
-  visual,
-  title,
-  image,
-  priority = false,
-}: {
-  visual: string;
-  title: string;
-  image?: string;
-  priority?: boolean;
-}) {
-  const initial = title
-    .split(/\s+/)
-    .map((w) => w[0])
-    .filter(Boolean)
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-
-  if (image) {
-    /* Parent must be `relative` with min-height; `fill` needs a non-zero box — not `flex-1` without flex parent */
-    return (
-      <div className="absolute inset-0 isolate overflow-hidden bg-surface dark:bg-surface-elevated">
-        <Image
-          src={image}
-          alt={`${title} preview`}
-          fill
-          className="object-cover object-top"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority={priority}
-        />
-        <div
-          className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/35 via-transparent to-foreground/3 dark:from-background/50"
-          aria-hidden
-        />
-      </div>
-    );
-  }
-
-  return (
-    <div
-      className={`relative isolate flex min-h-0 flex-1 items-end justify-end overflow-hidden bg-gradient-to-br ${visual} p-4 sm:p-5`}
-    >
-      <span
-        className="relative font-display text-4xl leading-none text-foreground/10 sm:text-5xl"
-        aria-hidden
-      >
-        {initial}
-      </span>
-    </div>
-  );
-}
-
 export function ProjectCard({ project, priority = false }: Props) {
-  const textBlock = (
-    <div className="flex flex-1 flex-col gap-2 p-5 sm:p-6">
-      <h3 className={`${cardTitle} transition-colors group-hover:text-highlight`}>
-        {project.title}
-      </h3>
-      <p className={bodySmall}>{project.description}</p>
-      <ul className="flex flex-wrap gap-2 pt-1" aria-label="Technologies">
-        {project.tags.map((tag) => (
-          <li key={tag}>
-            <span
-              className={`inline-flex rounded-full border border-border bg-surface px-2.5 py-0.5 dark:bg-surface-elevated ${monoTag}`}
-            >
-              {tag}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-
-  const shell =
-    "group relative flex h-full min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl border border-border bg-surface-elevated shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-highlight/45 hover:shadow-[0_0_0_1px_color-mix(in_oklab,var(--highlight)_20%,transparent),0_20px_40px_-24px_color-mix(in_oklab,var(--highlight)_25%,transparent)] dark:bg-surface-elevated/90 dark:hover:border-highlight/45 dark:hover:shadow-[0_0_0_1px_color-mix(in_oklab,var(--highlight)_25%,transparent),0_24px_48px_-28px_rgba(0,0,0,0.65)] [contain:layout]";
-
-  const focus =
-    "block h-full w-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight";
-
-  if (project.layout === "horizontal") {
-    return (
-      <article className={`@container ${shell}`}>
-        <a
-          href={project.href}
-          className={`${focus} flex min-h-0 flex-1 flex-col @min-[34rem]:flex-row @min-[34rem]:items-stretch`}
-          {...externalLinkProps(project.href)}
-        >
-          <div className="relative flex min-h-[140px] flex-[1.05] flex-col sm:min-h-[160px] @min-[34rem]:min-h-[180px]">
-            <Visual visual={project.visual} title={project.title} image={project.image} priority={priority} />
-          </div>
-          <div className="flex min-w-0 flex-1 flex-col justify-center border-t border-border @min-[34rem]:border-l @min-[34rem]:border-t-0">
-            {textBlock}
-          </div>
-        </a>
-      </article>
-    );
-  }
-
-  const isFeatured = project.layout === "featured";
+  const width = project.imageWidth ?? 1600;
+  const height = project.imageHeight ?? 900;
 
   return (
-    <article className={shell}>
+    <article className="group relative isolate overflow-hidden rounded-[9px] bg-[#091521]">
       <a
         href={project.href}
-        className={`${focus} flex min-h-0 flex-1 flex-col`}
+        className="relative block cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
         {...externalLinkProps(project.href)}
       >
-        <div
-          className={`relative w-full flex-shrink-0 ${isFeatured ? "min-h-[140px] sm:min-h-[160px]" : "min-h-[112px] sm:min-h-[128px]"}`}
-        >
-          <Visual visual={project.visual} title={project.title} image={project.image} priority={priority} />
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={`${project.title} preview`}
+            width={width}
+            height={height}
+            className="h-auto w-full"
+            sizes="(min-width: 1024px) 480px, (min-width: 640px) 50vw, 100vw"
+            priority={priority}
+          />
+        ) : (
+          <div
+            className={`aspect-video w-full bg-gradient-to-br ${project.visual}`}
+            aria-hidden
+          />
+        )}
+
+        <span
+          className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(rgba(0,0,0,0.1)_10%,rgba(0,0,0,0.78)_80%)] opacity-30 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100"
+          aria-hidden
+        />
+
+        <div className="absolute inset-x-0 bottom-0 z-20 px-6 py-5 opacity-0 translate-y-[10%] transition-[opacity,transform] duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 sm:px-8 sm:py-6">
+          <h3 className="text-[1.35rem] font-extrabold leading-tight text-white sm:text-[1.67rem]">
+            {project.title}
+          </h3>
+          <p className="mt-2 line-clamp-2 text-[0.9375rem] leading-snug text-[#d5d5d5]">
+            {project.description}
+          </p>
+          <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Technologies">
+            {project.tags.slice(0, 4).map((tag) => (
+              <li key={tag}>
+                <span className="inline-flex rounded-full bg-[#696869] px-2.5 py-1 text-[11px] font-medium capitalize text-white">
+                  {tag}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
-        {textBlock}
       </a>
     </article>
   );

@@ -12,10 +12,26 @@ export type Project = {
   visual: string;
   /** Screenshot or mockup under `public/` e.g. `/projects/commerce.png` */
   image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 };
 
 /** Live projects — screenshots in `public/projects/`. */
 export const projects: Project[] = [
+  {
+    title: "MailRelay",
+    description:
+      "Email API in front of Resend — save one Resend key, issue MailRelay keys, then send from Apps Script, Node, or any app without pasting Resend everywhere. Dashboard auth, a POST send endpoint, and examples for invoices, alerts, and reports.",
+    href: "https://maailrelay-hfrq.vercel.app/",
+    tags: ["Next.js", "TypeScript", "Resend", "Tailwind CSS", "Vercel"],
+    year: "2026",
+    role: "Lead Software Engineer",
+    layout: "featured",
+    visual: "from-blue-600/25 via-sky-700/15 to-indigo-900/20",
+    image: "/projects/mailrelay.png",
+    imageWidth: 1024,
+    imageHeight: 565,
+  },
   {
     title: "Gesi",
     description:
@@ -36,6 +52,23 @@ export const projects: Project[] = [
     layout: "featured",
     visual: "from-amber-600/25 via-orange-700/15 to-rose-900/20",
     image: "/projects/african-history.png",
+    imageWidth: 1024,
+    imageHeight: 588,
+  },
+  
+  {
+    title: "TidiViews",
+    description:
+      "TIDIVIEWS mobile is a smartphone-based coastal wave monitoring platform designed to make wave data accessible anywhere in the world.",
+    href: "https://tidiviews-website.vercel.app/",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "React Native", "Expo", "postgres"],
+    year: "2026",
+    role: "Lead Software Engineer",
+    layout: "featured",
+    visual: "from-cyan-500/20 via-teal-600/15 to-emerald-500/15",
+    image: "/projects/tidyviews.png",
+    imageWidth: 3358,
+    imageHeight: 1854,
   },
   {
     title: "Bamboo Securities",
@@ -48,42 +81,8 @@ export const projects: Project[] = [
     layout: "featured",
     visual: "from-cyan-500/20 via-teal-600/15 to-emerald-500/15",
     image: "/projects/bamboo-user.png",
-  },
-  {
-    title: "TidiViews",
-    description:
-      "TIDIVIEWS mobile is a smartphone-based coastal wave monitoring platform designed to make wave data accessible anywhere in the world.",
-    href: "https://tidiviews-website.vercel.app/",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "React Native", "Expo", "postgres"],
-    year: "2026",
-    role: "Lead Software Engineer",
-    layout: "featured",
-    visual: "from-cyan-500/20 via-teal-600/15 to-emerald-500/15",
-    image: "/projects/tidyviews.png",
-  },
-  {
-    title: "Social Villagers Development Initiative",
-    description:
-      "Building sustainable, self-reliant communities through education, health, socio-economic empowerment, and the power of young people working together in Nigeria.",
-    href: "https://socialvillagers.org/",
-    tags: ["Next.js", "TypeScript", "Radix UI", "Framer Motion", "Tailwind CSS", "google"],
-    year: "2026",
-    role: "Lead Software Engineer",
-    layout: "featured",
-    visual: "from-cyan-500/20 via-teal-600/15 to-emerald-500/15",
-    image: "/projects/villager.png",
-  },
-  {
-    title: "AfriStock",
-    description:
-      "Marketplace for authentic African photography — discovery, uploads, and seller-friendly flows. Next.js with Radix UI, Framer Motion, Recharts, and light/dark themes on Vercel.",
-    href: "https://afristock.vercel.app/",
-    tags: ["Next.js", "React", "TypeScript", "Radix UI", "Framer Motion", "Tailwind CSS"],
-    year: "2026",
-    role: "Personal · fullstack",
-    layout: "featured",
-    visual: "from-teal-600/25 via-emerald-800/18 to-amber-500/15",
-    image: "/projects/afristock.png",
+    imageWidth: 1920,
+    imageHeight: 956,
   },
   {
     title: "Siteflow",
@@ -96,6 +95,37 @@ export const projects: Project[] = [
     layout: "featured",
     visual: "from-cyan-500/20 via-teal-600/15 to-emerald-500/15",
     image: "/projects/project-management-light.jpg",
+    imageWidth: 1600,
+    imageHeight: 884,
   },
+  {
+    title: "AfriStock",
+    description:
+      "Marketplace for authentic African photography — discovery, uploads, and seller-friendly flows. Next.js with Radix UI, Framer Motion, Recharts, and light/dark themes on Vercel.",
+    href: "https://afristock.vercel.app/",
+    tags: ["Next.js", "React", "TypeScript", "Radix UI", "Framer Motion", "Tailwind CSS"],
+    year: "2026",
+    role: "Personal · fullstack",
+    layout: "featured",
+    visual: "from-teal-600/25 via-emerald-800/18 to-amber-500/15",
+    image: "/projects/afristock.png",
+    imageWidth: 1024,
+    imageHeight: 586,
+  },
+  {
+    title: "Social Villagers Development Initiative",
+    description:
+      "Building sustainable, self-reliant communities through education, health, socio-economic empowerment, and the power of young people working together in Nigeria.",
+    href: "https://socialvillagers.org/",
+    tags: ["Next.js", "TypeScript", "Radix UI", "Framer Motion", "Tailwind CSS", "google"],
+    year: "2026",
+    role: "Lead Software Engineer",
+    layout: "featured",
+    visual: "from-cyan-500/20 via-teal-600/15 to-emerald-500/15",
+    image: "/projects/villager.png",
+    imageWidth: 3358,
+    imageHeight: 1854,
+  },
+
 
 ];

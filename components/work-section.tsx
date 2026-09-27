@@ -22,7 +22,7 @@ export type WorkSectionProps = {
 const matchesFilter = (project: Project, filter: FilterCategory) => {
   if (filter === "All") return true;
   if (filter === "Fullstack") {
-    const fullstackTags = ["postgres", "postgresql", "prisma", "neon", "nestjs"];
+    const fullstackTags = ["postgres", "postgresql", "prisma", "neon", "nestjs", "resend"];
     return project.tags.some((tag) => fullstackTags.includes(tag.toLowerCase()));
   }
   return project.tags.some((tag) => tag.toLowerCase() === filter.toLowerCase());
@@ -33,7 +33,7 @@ export function WorkSection({
   title = "Project",
   titleId = "project-heading",
   description,
-  align = "center",
+  align = "start",
 }: WorkSectionProps) {
   const [selectedFilter, setSelectedFilter] = useState<FilterCategory>("All");
 
@@ -51,9 +51,8 @@ export function WorkSection({
         />
       </FadeIn>
 
-      {/* Glassmorphic Filter Row */}
       <FadeIn delay={0.05}>
-        <div className="mb-10 flex flex-wrap justify-center gap-2 pb-2">
+        <div className="mb-8 flex flex-wrap items-center gap-1 pb-2 sm:mb-10 sm:gap-2">
           {FILTER_CATEGORIES.map((category) => {
             const isActive = selectedFilter === category;
             return (
@@ -61,10 +60,10 @@ export function WorkSection({
                 key={category}
                 type="button"
                 onClick={() => setSelectedFilter(category)}
-                className={`inline-flex h-9 cursor-pointer items-center justify-center rounded-full px-5 text-[13px] font-medium tracking-[-0.01em] transition-all duration-300 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight ${
+                className={`inline-flex h-9 cursor-pointer items-center justify-center rounded-md px-3.5 text-[13px] font-medium tracking-[-0.01em] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight sm:px-4 ${
                   isActive
-                    ? "bg-foreground text-background shadow-md"
-                    : "border border-border bg-surface/30 text-muted hover:border-highlight/35 hover:text-highlight dark:bg-surface-elevated/5"
+                    ? "bg-foreground text-background"
+                    : "text-muted hover:text-foreground"
                 }`}
               >
                 {category}
@@ -74,28 +73,23 @@ export function WorkSection({
         </div>
       </FadeIn>
 
-      {/* Animated Projects Grid */}
       <div className={projectsGridShell}>
-        <motion.div
-          layout
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8"
-        >
+        <div className="columns-1 gap-6 sm:columns-2">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, i) => (
               <motion.div
-                layout
                 key={project.title}
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.92 }}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="h-full min-h-0 min-w-0"
+                className="mb-6 break-inside-avoid"
               >
-                <ProjectCard project={project} priority={i === 0} />
+                <ProjectCard project={project} priority={i < 2} />
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

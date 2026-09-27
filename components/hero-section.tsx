@@ -34,10 +34,10 @@ export function HeroSection() {
       <div className="flex min-h-[calc(100svh-4rem)] flex-col sm:min-h-[calc(100svh-4.5rem)]">
         <div className="flex flex-1 flex-col justify-center py-8 sm:py-10">
           <div>
-            <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:gap-8 xl:gap-12">
-              <FadeIn className="min-w-0 w-full lg:flex-1">
+            <div className="flex flex-col gap-10 lg:flex-row-reverse lg:items-end lg:gap-8 xl:gap-12">
+              <FadeIn className="min-w-0 w-full lg:flex-1 lg:text-right">
                 <nav aria-label="Social profiles" className="mb-5 sm:mb-6">
-                  <ul className="flex items-center gap-2.5">
+                  <ul className="flex items-center gap-2.5 lg:justify-end">
                     {heroSocials.map(({ label, href, Icon }) => (
                       <li key={label}>
                         <a
@@ -153,7 +153,7 @@ export function HeroSection() {
 
 function PortraitFrame() {
   return (
-    <div className="relative mx-auto w-full max-w-[22rem] overflow-x-clip sm:max-w-[26rem] lg:ml-auto lg:overflow-visible lg:max-w-[32rem]">
+    <div className="relative mx-auto w-full max-w-[22rem] overflow-x-clip sm:max-w-[26rem] lg:mx-0 lg:mr-auto lg:overflow-visible lg:max-w-[32rem]">
       <div className="relative aspect-[4/5] w-[70%] sm:w-[72%]">
         <div
           className="hero-blob absolute -right-8 -top-10 h-40 w-36 bg-[#d7d5ee] sm:-right-14 sm:h-52 sm:w-48 dark:bg-[#3f3d5c]"

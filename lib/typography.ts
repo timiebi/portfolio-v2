@@ -5,7 +5,7 @@
  * IBM Plex Sans → body, UI, labels (`font-sans`; `font-mono` maps here too)
  * Caveat → annotations (`font-hand`)
  *
- * Scale: 11 / 12 / 14 / 16 / 17–18 / 20 / 24 / 40 / 80
+ * Scale: 11 / 12 / 14 / 16 / 17–18 / 20 / 24 / 40 / 92
  * Large display tightens. Small caps open. Body sits slightly tight (−0.011em).
  */
 
@@ -38,9 +38,9 @@ export const monoTag =
 /** Project year · role */
 export const projectMetaRow = `flex flex-wrap items-center gap-x-3 gap-y-1 ${labelUpper} text-muted`;
 
-/** Hero name — 80px cap, all-caps in the component */
+/** Hero name — 92px cap, all-caps in the component */
 export const heroTitle =
-  "font-display text-[clamp(2.05rem,7.2vw+0.45rem,5rem)] font-semibold leading-[0.96] tracking-[-0.04em] text-balance text-foreground";
+  "font-display text-[clamp(2.15rem,8vw+0.5rem,5.75rem)] font-semibold leading-[0.96] tracking-[-0.04em] text-balance text-foreground";
 
 /** Page / section H2 */
 export const sectionTitle =

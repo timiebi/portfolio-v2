@@ -23,6 +23,11 @@ export const homeTicker = {
   items: [
     {
       kind: "Project",
+      text: "MailRelay — one Resend key, send from any app",
+      href: "https://maailrelay-hfrq.vercel.app/",
+    },
+    {
+      kind: "Project",
       text: "Retail commerce — storefront, cart, and account hardening",
       href: "/work",
     },
@@ -118,7 +123,7 @@ export const site = {
     "I also write, over on Insights — part technical notes to my future self, part thoughts on building things that last.",
   ] as const,
   email: "kosutimiebinicholas@gmail.com",
-  availability: "ONLINE",
+  availability: "",
   portrait: {
     src: "/portrait.jpg",
     alt: "Timiebi Nicholas Kosu",
@@ -126,7 +131,7 @@ export const site = {
     height: 1024,
   },
   /** Wordmarks drawn from shipped work */
-  trusted: ["Bamboo", "Gesi", "Siteflow", "TidiViews", "AfriStock", "Villagers"] as const,
+  trusted: ["MailRelay", "Bamboo", "Gesi", "Siteflow", "TidiViews", "AfriStock", "Villagers"] as const,
   social: {
     github: "https://github.com/timiebi",
     linkedin: "https://www.linkedin.com/in/nicholas-kosu",
