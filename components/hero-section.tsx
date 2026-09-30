@@ -177,7 +177,7 @@ function PortraitFrame() {
           aria-hidden
         />
 
-        <div className="relative z-10 h-full overflow-hidden rounded-[1.75rem] bg-surface shadow-[0_24px_80px_-32px_rgba(15,15,15,0.35)] sm:rounded-[2rem]">
+        <div className="relative z-10 h-full cursor-pointer overflow-hidden rounded-[4px] bg-surface shadow-[0_24px_80px_-32px_rgba(15,15,15,0.35)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform hover:-rotate-2 hover:scale-[1.015] motion-reduce:transition-none motion-reduce:hover:rotate-0 motion-reduce:hover:scale-100">
           <Image
             src={site.portrait.src}
             alt={site.portrait.alt}
@@ -189,13 +189,13 @@ function PortraitFrame() {
         </div>
 
         <div className="absolute bottom-5 right-3 z-20 sm:bottom-6 sm:right-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/95 px-3.5 py-2 text-xs font-medium text-zinc-800 shadow-lg shadow-black/5 backdrop-blur dark:border-white/10 dark:bg-zinc-900/90 dark:text-zinc-100">
+          {/* <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/95 px-3.5 py-2 text-xs font-medium text-zinc-800 shadow-lg shadow-black/5 backdrop-blur dark:border-white/10 dark:bg-zinc-900/90 dark:text-zinc-100">
             <span className="relative flex h-2 w-2" aria-hidden>
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             </span>
             {site.availability}
-          </div>
+          </div> */}
         </div>
       </div>
 
