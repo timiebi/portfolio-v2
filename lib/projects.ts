@@ -14,24 +14,12 @@ export type Project = {
   image?: string;
   imageWidth?: number;
   imageHeight?: number;
+  /** Looping preview video under `public/`; shown instead of `image` (which becomes the poster) */
+  video?: string;
 };
 
 /** Live projects — screenshots in `public/projects/`. */
 export const projects: Project[] = [
-  {
-    title: "MailRelay",
-    description:
-      "Email API in front of Resend — save one Resend key, issue MailRelay keys, then send from Apps Script, Node, or any app without pasting Resend everywhere. Dashboard auth, a POST send endpoint, and examples for invoices, alerts, and reports.",
-    href: "https://maailrelay-hfrq.vercel.app/",
-    tags: ["Next.js", "TypeScript", "Resend", "Tailwind CSS", "Vercel"],
-    year: "2026",
-    role: "Lead Software Engineer",
-    layout: "featured",
-    visual: "from-blue-600/25 via-sky-700/15 to-indigo-900/20",
-    image: "/projects/mailrelay.png",
-    imageWidth: 1024,
-    imageHeight: 565,
-  },
   {
     title: "Gesi",
     description:
@@ -51,25 +39,11 @@ export const projects: Project[] = [
     role: "Startup · fullstack",
     layout: "featured",
     visual: "from-amber-600/25 via-orange-700/15 to-rose-900/20",
-    image: "/projects/african-history.png",
-    imageWidth: 1024,
-    imageHeight: 588,
-  },
-  
-  {
-    title: "TidiViews",
-    description:
-      "TIDIVIEWS mobile is a smartphone-based coastal wave monitoring platform designed to make wave data accessible anywhere in the world.",
-    href: "https://tidiviews-website.vercel.app/",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "React Native", "Expo", "postgres"],
-    year: "2026",
-    role: "Lead Software Engineer",
-    layout: "featured",
-    visual: "from-cyan-500/20 via-teal-600/15 to-emerald-500/15",
-    image: "/projects/tidyviews.png",
+    video: "/projects/gesi_video.mov",
     imageWidth: 3358,
-    imageHeight: 1854,
+    imageHeight: 1860,
   },
+
   {
     title: "Bamboo Securities",
     description:
@@ -84,6 +58,8 @@ export const projects: Project[] = [
     imageWidth: 1920,
     imageHeight: 956,
   },
+
+  
   {
     title: "Siteflow",
     description:
@@ -98,20 +74,50 @@ export const projects: Project[] = [
     imageWidth: 1600,
     imageHeight: 884,
   },
-  {
-    title: "AfriStock",
+    {
+    title: "TidiViews",
     description:
-      "Marketplace for authentic African photography — discovery, uploads, and seller-friendly flows. Next.js with Radix UI, Framer Motion, Recharts, and light/dark themes on Vercel.",
-    href: "https://afristock.vercel.app/",
-    tags: ["Next.js", "React", "TypeScript", "Radix UI", "Framer Motion", "Tailwind CSS"],
+      "TIDIVIEWS mobile is a smartphone-based coastal wave monitoring platform designed to make wave data accessible anywhere in the world.",
+    href: "https://tidiviews-website.vercel.app/",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "React Native", "Expo", "postgres"],
+    year: "2026",
+    role: "Lead Software Engineer",
+    layout: "featured",
+    visual: "from-cyan-500/20 via-teal-600/15 to-emerald-500/15",
+    image: "/projects/tidyviews.png",
+    imageWidth: 3358,
+    imageHeight: 1854,
+  },
+ 
+    {
+    title: "Shooter Hubbie",
+    description:
+      "Private client galleries for photographers — photos and films straight from Google Drive or Hubbie Storage. Clients favorite, select, and leave notes without an account; password-protected, expiring links, logged downloads, and seven studio palettes.",
+    href: "https://photography-gold-eight.vercel.app/",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Google Drive API", "Vercel"],
     year: "2026",
     role: "Personal · fullstack",
     layout: "featured",
-    visual: "from-teal-600/25 via-emerald-800/18 to-amber-500/15",
-    image: "/projects/afristock.png",
-    imageWidth: 1024,
-    imageHeight: 586,
+    visual: "from-stone-500/25 via-rose-900/15 to-neutral-900/20",
+    video: "/projects/shootershubbie.mov",
+    imageWidth: 3358,
+    imageHeight: 1860,
   },
+    {
+    title: "MailRelay",
+    description:
+      "Email API in front of Resend — save one Resend key, issue MailRelay keys, then send from Apps Script, Node, or any app without pasting Resend everywhere. Dashboard auth, a POST send endpoint, and examples for invoices, alerts, and reports.",
+    href: "https://maailrelay-hfrq.vercel.app/",
+    tags: ["Next.js", "TypeScript", "Resend", "Tailwind CSS", "Vercel"],
+    year: "2026",
+    role: "Lead Software Engineer",
+    layout: "featured",
+    visual: "from-blue-600/25 via-sky-700/15 to-indigo-900/20",
+    image: "/projects/mailrelay.png",
+    imageWidth: 1024,
+    imageHeight: 565,
+  },
+
   {
     title: "Social Villagers Development Initiative",
     description:
@@ -126,6 +132,18 @@ export const projects: Project[] = [
     imageWidth: 3358,
     imageHeight: 1854,
   },
-
-
+   {
+    title: "AfriStock",
+    description:
+      "Marketplace for authentic African photography — discovery, uploads, and seller-friendly flows. Next.js with Radix UI, Framer Motion, Recharts, and light/dark themes on Vercel.",
+    href: "https://afristock-eight.vercel.app/",
+    tags: ["Next.js", "React", "TypeScript", "Radix UI", "Framer Motion", "Tailwind CSS"],
+    year: "2026",
+    role: "Personal · fullstack",
+    layout: "featured",
+    visual: "from-teal-600/25 via-emerald-800/18 to-amber-500/15",
+    image: "/projects/afristock.png",
+    imageWidth: 1024,
+    imageHeight: 586,
+  },
 ];

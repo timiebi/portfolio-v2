@@ -22,7 +22,21 @@ export function ProjectCard({ project, priority = false }: Props) {
         className="relative block cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
         {...externalLinkProps(project.href)}
       >
-        {project.image ? (
+        {project.video ? (
+          <video
+            src={project.video}
+            poster={project.image}
+            width={width}
+            height={height}
+            className="h-auto w-full"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload={priority ? "auto" : "metadata"}
+            aria-label={`${project.title} preview`}
+          />
+        ) : project.image ? (
           <Image
             src={project.image}
             alt={`${project.title} preview`}

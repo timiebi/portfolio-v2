@@ -131,7 +131,7 @@ export const site = {
     height: 1024,
   },
   /** Wordmarks drawn from shipped work */
-  trusted: ["MailRelay", "Bamboo", "Gesi", "Siteflow", "TidiViews", "AfriStock", "Villagers"] as const,
+  trusted: ["MailRelay", "Bamboo", "Gesi", "Siteflow", "TidiViews", "AfriStock", "Shooter Hubbie", "Villagers"] as const,
   social: {
     github: "https://github.com/timiebi",
     linkedin: "https://www.linkedin.com/in/nicholas-kosu",
