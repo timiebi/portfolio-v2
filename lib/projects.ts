@@ -103,7 +103,7 @@ export const projects: Project[] = [
     video: "/projects/shootershubbie.mp4",
     image: "/projects/shootershubbie-poster.jpg",
     imageWidth: 1280,
-    imageHeight: 708,
+    imageHeight: 762,
   },
     {
     title: "MailRelay",
