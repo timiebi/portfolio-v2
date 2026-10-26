@@ -91,10 +91,10 @@ export const projects: Project[] = [
   },
  
     {
-    title: "Shooter Hubbie",
+    title: "Shooters Hubbie",
     description:
       "Private client galleries for photographers — photos and films straight from Google Drive or Hubbie Storage. Clients favorite, select, and leave notes without an account; password-protected, expiring links, logged downloads, and seven studio palettes.",
-    href: "https://photography-gold-eight.vercel.app/",
+    href: "https://shootershubbie.com/",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Google Drive API", "Vercel"],
     year: "2026",
     role: "Personal · fullstack",
