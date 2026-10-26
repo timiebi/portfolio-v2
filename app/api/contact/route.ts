@@ -1,9 +1,22 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
+const escapeHtml = (value: string) =>
+  value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
+const asTrimmedString = (value: unknown) => (typeof value === "string" ? value.trim() : "");
+
 export async function POST(request: Request) {
   try {
-    const { name, email, message } = await request.json();
+    const body = await request.json().catch(() => null);
+    const name = asTrimmedString(body?.name);
+    const email = asTrimmedString(body?.email);
+    const message = asTrimmedString(body?.message);
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -12,11 +25,22 @@ export async function POST(request: Request) {
       );
     }
 
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || name.length > 200 || email.length > 320 || message.length > 5000) {
+      return NextResponse.json(
+        { error: "Invalid input" },
+        { status: 400 }
+      );
+    }
+
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeMessage = escapeHtml(message);
+
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
       console.error("RESEND_API_KEY is not defined in environment variables");
       return NextResponse.json(
-        { error: "Server configuration error. Missing API key." },
+        { error: "Message could not be sent." },
         { status: 500 }
       );
     }
@@ -26,7 +50,7 @@ export async function POST(request: Request) {
     const emailResponse = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
       to: ["kosutimiebinicholas@gmail.com"],
-      subject: `New Portfolio Message from ${name}`,
+      subject: `New Portfolio Message from ${name.replace(/[\r\n]+/g, " ")}`,
       replyTo: email,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e5e5e5; border-radius: 12px;">
@@ -36,12 +60,12 @@ export async function POST(request: Request) {
           <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
             <tr>
               <td style="padding: 6px 0; font-weight: 600; color: #737373; width: 120px;">Sender Name:</td>
-              <td style="padding: 6px 0; color: #0a0a0a;">${name}</td>
+              <td style="padding: 6px 0; color: #0a0a0a;">${safeName}</td>
             </tr>
             <tr>
               <td style="padding: 6px 0; font-weight: 600; color: #737373;">Sender Email:</td>
               <td style="padding: 6px 0; color: #0a0a0a;">
-                <a href="mailto:${email}" style="color: #0891b2; text-decoration: none;">${email}</a>
+                <a href="mailto:${safeEmail}" style="color: #0891b2; text-decoration: none;">${safeEmail}</a>
               </td>
             </tr>
           </table>
@@ -49,7 +73,7 @@ export async function POST(request: Request) {
             <p style="margin: 0; font-weight: 600; color: #737373; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">
               Message
             </p>
-            <p style="margin: 0; color: #0a0a0a; white-space: pre-wrap; font-size: 14px; line-height: 1.6;">${message}</p>
+            <p style="margin: 0; color: #0a0a0a; white-space: pre-wrap; font-size: 14px; line-height: 1.6;">${safeMessage}</p>
           </div>
         </div>
       `,
@@ -58,16 +82,16 @@ export async function POST(request: Request) {
     if (emailResponse.error) {
       console.error("Resend API error:", emailResponse.error);
       return NextResponse.json(
-        { error: emailResponse.error.message },
-        { status: 400 }
+        { error: "Message could not be sent." },
+        { status: 502 }
       );
     }
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error in POST /api/contact:", error);
     return NextResponse.json(
-      { error: error?.message || "Internal Server Error" },
+      { error: "Internal Server Error" },
       { status: 500 }
     );
   }

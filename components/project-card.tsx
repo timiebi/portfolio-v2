@@ -1,3 +1,4 @@
+import { ProjectVideo } from "@/components/project-video";
 import type { Project } from "@/lib/projects";
 import Image from "next/image";
 
@@ -23,18 +24,12 @@ export function ProjectCard({ project, priority = false }: Props) {
         {...externalLinkProps(project.href)}
       >
         {project.video ? (
-          <video
+          <ProjectVideo
             src={project.video}
             poster={project.image}
             width={width}
             height={height}
-            className="h-auto w-full"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload={priority ? "auto" : "metadata"}
-            aria-label={`${project.title} preview`}
+            label={`${project.title} preview`}
           />
         ) : project.image ? (
           <Image

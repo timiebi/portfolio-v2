@@ -25,6 +25,11 @@ const matchesFilter = (project: Project, filter: FilterCategory) => {
     const fullstackTags = ["postgres", "postgresql", "prisma", "neon", "nestjs", "resend"];
     return project.tags.some((tag) => fullstackTags.includes(tag.toLowerCase()));
   }
+  if (filter === "React") {
+    // Next.js and React Native projects are React projects too
+    const reactTags = ["react", "next.js", "react native"];
+    return project.tags.some((tag) => reactTags.includes(tag.toLowerCase()));
+  }
   return project.tags.some((tag) => tag.toLowerCase() === filter.toLowerCase());
 };
 

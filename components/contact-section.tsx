@@ -54,16 +54,9 @@ export function ContactSection({
 
       setIsSent(true);
       setFormData({ name: "", email: "", message: "" });
-    } catch (err: any) {
-      // If Resend API key or custom domain is not configured, fall back to opening user's mail client directly
-      const mailtoUrl = `mailto:${site.email}?subject=Portfolio Message from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
-        `From: ${formData.name} <${formData.email}>\n\nMessage:\n${formData.message}`
-      )}`;
-      
-      window.location.href = mailtoUrl;
-
-      setIsSent(true);
-      setFormData({ name: "", email: "", message: "" });
+    } catch {
+      // Keep the draft and offer the visitor's mail client instead of claiming it was sent
+      setError("send-failed");
     } finally {
       setIsSubmitting(false);
     }
@@ -121,8 +114,23 @@ export function ContactSection({
                 className="relative min-w-0 overflow-hidden rounded-2xl border border-border bg-surface/30 p-6 dark:bg-surface-elevated/10 sm:rounded-3xl sm:p-8 backdrop-blur-xs space-y-6"
               >
                 {error && (
-                  <div className="p-3 text-xs font-semibold text-rose-500 bg-rose-500/10 rounded-lg border border-rose-500/25">
-                    {error}
+                  <div role="alert" className="p-3 text-xs font-semibold text-rose-500 bg-rose-500/10 rounded-lg border border-rose-500/25">
+                    {error === "send-failed" ? (
+                      <>
+                        Your message couldn&apos;t be sent right now.{" "}
+                        <a
+                          href={`mailto:${site.email}?subject=${encodeURIComponent(`Portfolio Message from ${formData.name}`)}&body=${encodeURIComponent(
+                            `From: ${formData.name} <${formData.email}>\n\nMessage:\n${formData.message}`
+                          )}`}
+                          className="underline underline-offset-2 hover:text-rose-400"
+                        >
+                          Send it from your email app instead
+                        </a>
+                        .
+                      </>
+                    ) : (
+                      error
+                    )}
                   </div>
                 )}
                 <div className="space-y-2 group">
@@ -175,6 +183,7 @@ export function ContactSection({
                     name="message"
                     required
                     rows={5}
+                    maxLength={5000}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full resize-none rounded-xl border border-border bg-background/50 px-4 py-3.5 text-base tracking-[-0.011em] text-foreground placeholder-muted/40 transition-all duration-200 outline-hidden hover:border-border/120 focus:border-highlight focus:ring-3 focus:ring-highlight/10 dark:bg-background/25 sm:text-sm"

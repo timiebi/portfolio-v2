@@ -6,6 +6,7 @@ import { siteShell } from "@/lib/layout";
 import { mainNav, routes } from "@/lib/routes";
 import { site } from "@/lib/site";
 import { brandMark, eyebrowHighlight, navLink } from "@/lib/typography";
+import { useHydrated } from "@/lib/use-hydrated";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLenis } from "lenis/react";
 import Link from "next/link";
@@ -17,15 +18,14 @@ export function SiteHeader() {
   const pathname = usePathname();
   const lenis = useLenis();
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useHydrated();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
+  // Close the menu on navigation (incl. back/forward) — adjusted during render, not in an effect
+  const [menuPathname, setMenuPathname] = useState(pathname);
+  if (menuPathname !== pathname) {
+    setMenuPathname(pathname);
     setIsOpen(false);
-  }, [pathname]);
+  }
 
   useEffect(() => {
     const html = document.documentElement;

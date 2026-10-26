@@ -39,9 +39,10 @@ export const projects: Project[] = [
     role: "Startup · fullstack",
     layout: "featured",
     visual: "from-amber-600/25 via-orange-700/15 to-rose-900/20",
-    video: "/projects/gesi_video.mov",
-    imageWidth: 3358,
-    imageHeight: 1860,
+    video: "/projects/gesi.mp4",
+    image: "/projects/gesi-poster.jpg",
+    imageWidth: 1280,
+    imageHeight: 708,
   },
 
   {
@@ -99,9 +100,10 @@ export const projects: Project[] = [
     role: "Personal · fullstack",
     layout: "featured",
     visual: "from-stone-500/25 via-rose-900/15 to-neutral-900/20",
-    video: "/projects/shootershubbie.mov",
-    imageWidth: 3358,
-    imageHeight: 1860,
+    video: "/projects/shootershubbie.mp4",
+    image: "/projects/shootershubbie-poster.jpg",
+    imageWidth: 1280,
+    imageHeight: 708,
   },
     {
     title: "MailRelay",
